@@ -100,7 +100,13 @@ function BlackHeader() {
           .blackcontainer {
             height:40px;
             background-color:#333;
-            padding: 0px 230px;
+            padding: 0px 15%;
+            @media(max-width: 1550px){
+              padding: 10px 10%;
+            }
+            @media(max-width: 1250px){
+              padding: 10px 10px;
+            }
           }
 
           .navContainer {
@@ -137,7 +143,7 @@ function BlackHeader() {
 
 function GreenHeader() {
   const navbar = document.createElement("nav");
-  navbar.className = "navbar";
+  navbar.className = "navbarContainer";
 
   // Create the logo
   const logo = document.createElement("div");
@@ -275,6 +281,27 @@ function GreenHeader() {
     navLinks.appendChild(li);
   });
 
+  // DESKTOP MENU BUTTON
+  let menuButtonStateDesktop = false;
+  const menuButtonDesktop = document.createElement("div");
+  menuButtonDesktop.addEventListener("click", () => {
+    menuButtonStateDesktop = !menuButtonStateDesktop;
+    // Update class dynamically
+    menuButtonDesktop.className = menuButtonStateDesktop
+      ? "selectedMenuButtonDesktop"
+      : "menuButtonDesktop";
+    // Update SVG dynamically
+    menuButtonDesktop.innerHTML = menuButtonStateDesktop
+      ? `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path></svg>`
+      : `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
+  });
+
+  // Set initial class and SVG
+  menuButtonDesktop.className = "menuButtonDesktop";
+  menuButtonDesktop.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
+
+  navLinks.appendChild(menuButtonDesktop);
+
   navbar.appendChild(navLinks);
 
   // Add the navbar to the body
@@ -289,13 +316,19 @@ function GreenHeader() {
           padding: 0;
       }
 
-      .navbar {
+      .navbarContainer {
           display: flex;
           justify-content: space-between;
           align-items: center;
           background-color:rgb(2, 81, 82);
-          padding: 10px 150px;
+          padding: 10px 15%;
           border-radius:0px;
+          @media(max-width: 1550px){
+            padding: 10px 10%;
+          }
+          @media(max-width: 1250px){
+            padding: 10px 10px;
+          }
       }
 
       .nav-links {
@@ -304,6 +337,9 @@ function GreenHeader() {
           gap:25px;
           margin: 0;
           padding: 0;
+           @media(max-width: 1250px){
+            gap: 5px;
+          }
       }
 
       .nav-links li {
@@ -312,6 +348,9 @@ function GreenHeader() {
           flex-direction: row;
           align-items:center;
           gap:5px;
+          @media(max-width: 900px){
+            display:none;
+          }
       }
 
       .arrow {
@@ -384,10 +423,36 @@ function GreenHeader() {
         color: rgb(198, 198, 198) !important;
       }
 
-      @media(max-width: 1250px){
-        .nav-links {
+      .menuButtonDesktop{
+        width:32px;
+        height:32px;
+        background-color:white;
+        border-radius:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        cursor:pointer;
+        @media(max-width: 900px){
           display:none;
+        } 
+      }
+
+      .selectedMenuButtonDesktop{
+        width:32px;
+        height:32px;
+        background-color:rgba(255, 255, 255, 0.125);
+        border-radius:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        cursor:pointer;
+        svg {
+          color:white;
         }
+
+        @media(max-width: 900px){
+          display:none;
+        } 
       }
   `;
 
