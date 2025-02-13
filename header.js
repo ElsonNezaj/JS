@@ -105,7 +105,7 @@ function BlackHeader() {
               padding: 10px 10%;
             }
             @media(max-width: 1250px){
-              padding: 10px 10px;
+              padding: 0px 10px;
             }
           }
 
