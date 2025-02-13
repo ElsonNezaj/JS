@@ -383,6 +383,12 @@ function GreenHeader() {
         background-color: rgb(148, 148, 148) !important;
         color: rgb(198, 198, 198) !important;
       }
+
+      @media(max-width: 1250px){
+        .nav-links {
+          display:none;
+        }
+      }
   `;
 
   document.head.appendChild(style);
