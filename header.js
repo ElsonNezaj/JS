@@ -47,9 +47,26 @@ document.addEventListener("DOMContentLoaded", function () {
   fontFaceStyle.textContent = fontFaceCSS;
   document.head.appendChild(fontFaceStyle);
 
+  // GLOBAL VARS
+  let menuButtonStateDesktop = false;
+  let menuButtonStateMobile = false;
+
+  const state = {
+    get menuButtonStateDesktop() {
+      return menuButtonStateDesktop;
+    },
+    set menuButtonStateDesktop(value) {
+      menuButtonStateDesktop = value;
+    },
+  };
+
   // Create the navbar container
   BlackHeader();
-  GreenHeader();
+  GreenHeader({
+    desktopState: state,
+    mobileState: menuButtonStateMobile,
+  });
+  DesktopNavigation({ desktopState: state });
 });
 
 function BlackHeader() {
@@ -102,7 +119,7 @@ function BlackHeader() {
             background-color:#333;
             padding: 0px 15%;
             @media(max-width: 1550px){
-              padding: 10px 10%;
+              padding: 0px 10%;
             }
             @media(max-width: 1250px){
               padding: 0px 10px;
@@ -141,7 +158,7 @@ function BlackHeader() {
   document.head.appendChild(blackContainerStyles);
 }
 
-function GreenHeader() {
+function GreenHeader({ desktopState, mobileState }) {
   const navbar = document.createElement("nav");
   navbar.className = "navbarContainer";
 
@@ -154,6 +171,7 @@ function GreenHeader() {
     "https://images.ctfassets.net/26ep875sz1dl/5tqbcXMxG54o08zYxhm3CT/0d9dd19f38a7fdd95bc2d8c1a9fd57c5/logo_white1__1_.svg";
   logoImg.alt = "newcleo Logo";
   logoImg.style.height = "40px";
+  logoImg.style.width = "7.86rem";
 
   logo.appendChild(logoImg);
   navbar.appendChild(logo);
@@ -282,16 +300,15 @@ function GreenHeader() {
   });
 
   // DESKTOP MENU BUTTON
-  let menuButtonStateDesktop = false;
   const menuButtonDesktop = document.createElement("div");
   menuButtonDesktop.addEventListener("click", () => {
-    menuButtonStateDesktop = !menuButtonStateDesktop;
+    desktopState.menuButtonStateDesktop = !desktopState.menuButtonStateDesktop;
     // Update class dynamically
-    menuButtonDesktop.className = menuButtonStateDesktop
+    menuButtonDesktop.className = desktopState.menuButtonStateDesktop
       ? "selectedMenuButtonDesktop"
       : "menuButtonDesktop";
     // Update SVG dynamically
-    menuButtonDesktop.innerHTML = menuButtonStateDesktop
+    menuButtonDesktop.innerHTML = desktopState.menuButtonStateDesktop
       ? `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path></svg>`
       : `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
   });
@@ -300,16 +317,15 @@ function GreenHeader() {
   menuButtonDesktop.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
 
   // MOBILE  MENU BUTTON
-  let menuButtonStateMobile = false;
   const menuButtonMobile = document.createElement("div");
   menuButtonMobile.addEventListener("click", () => {
-    menuButtonStateMobile = !menuButtonStateMobile;
+    mobileState = !mobileState;
     // Update class dynamically
-    menuButtonMobile.className = menuButtonStateMobile
+    menuButtonMobile.className = mobileState
       ? "selectedMenuButtonMobile"
       : "menuButtonMobile";
     // Update SVG dynamically
-    menuButtonMobile.innerHTML = menuButtonStateMobile
+    menuButtonMobile.innerHTML = mobileState
       ? `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path></svg>`
       : `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
   });
@@ -505,4 +521,95 @@ function GreenHeader() {
   `;
 
   document.head.appendChild(style);
+}
+
+function DesktopNavigation({ desktopState }) {
+  let desktopNav = document.querySelector(".desktopNavigationContainer");
+
+  if (!desktopNav) {
+    desktopNav = document.createElement("div");
+    desktopNav.className = "desktopNavigationContainer";
+    document.body.appendChild(desktopNav);
+  }
+
+  // Function to update navigation based on the state
+  const updateNavigation = () => {
+    if (desktopState.menuButtonStateDesktop) {
+      desktopNav.className = "desktopNavigationContainer";
+    } else {
+      desktopNav.className = "hideNavbar";
+    }
+  };
+
+  // Watch for changes to desktopState.menuButtonStateDesktop using Object.defineProperty
+  Object.defineProperty(desktopState, "menuButtonStateDesktop", {
+    set(newValue) {
+      this._menuButtonStateDesktop = newValue;
+      updateNavigation(); // Call update function whenever the state changes
+    },
+    get() {
+      return this._menuButtonStateDesktop;
+    },
+  });
+
+  // Initial update when the component is created
+  updateNavigation();
+
+  if (!document.querySelector("#desktopNavStyles")) {
+    const style = document.createElement("style");
+    style.id = "desktopNavStyles"; // Give an ID to prevent duplicates
+    style.textContent = `
+
+        @keyframes showNavbar {
+          0% {
+            height: 0px;
+            opacity: 0;
+          }
+        
+          100% {
+           height: calc(100vh - 104px);
+           opacity: 1;
+          }
+        }
+
+          @keyframes hideNav {        
+          0% {
+           height: calc(100vh - 104px);
+           opacity: 1;
+          }
+          100% {
+            height: 0px;
+            opacity: 0;
+            visibility:hidden;
+          }
+        }
+
+      .desktopNavigationContainer {
+        width: 100vw;
+        position: absolute;
+        left: 0;
+        top: 104px;
+        background-color: rgb(2, 81, 82);
+        animation-name: showNavbar;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in;
+        animation-fill-mode: forwards;
+        overflow:hidden;
+        
+      }
+      .hideNavbar {
+        width: 100vw;
+        position: absolute;
+        left: 0;
+        top: 104px;
+        background-color: rgb(2, 81, 82);
+        animation-name: hideNav;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in;
+        animation-fill-mode: forwards;
+        overflow:hidden;
+      }
+    `;
+    document.head.appendChild(style);
+  }
 }
