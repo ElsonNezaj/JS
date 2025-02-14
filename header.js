@@ -1,3 +1,70 @@
+const navItems = [
+  {
+    text: "PRODUCTS AND SERVICES",
+    href: "/products-services/",
+    dropdown: [
+      {
+        text: "Our services and skills",
+        href: "/products-services/services-skills/",
+      },
+      {
+        text: "Delivering our Gen-IV vision",
+        href: "/products-services/delivering-our-gen-iv-vision/",
+      },
+    ],
+  },
+  {
+    text: "OUR TECHNOLOGY",
+    href: "/our-technology/",
+    dropdown: [
+      { text: "Reactors", href: "/our-technology/reactors/" },
+      { text: "Fuel", href: "/our-technology/fuel/" },
+    ],
+  },
+  {
+    text: "ABOUT US",
+    href: "/about-us/",
+    dropdown: [
+      { text: "<i>new</i>cleo Group", href: "/about-us/newcleo-group/" },
+      { text: "Our leadership", href: "/about-us/our-leadership/" },
+      {
+        text: "Partnerships and memberships",
+        href: "/about-us/partnerships-and-memberships/",
+      },
+      {
+        text: "Our purpose, vision, mission, and values",
+        href: "/about-us/purpose-vision-mission-values/",
+      },
+      { text: "Our ESG strategy", href: "/about-us/our-esg-strategy/" },
+      { text: "Locations", href: "/about-us/locations/" },
+    ],
+  },
+  {
+    text: "NEWS & INSIGHTS",
+    href: "/news-insights/",
+    dropdown: null, // No dropdown for this item
+  },
+  {
+    text: "JOIN OUR TEAM",
+    href: "/join-our-team/",
+    dropdown: [
+      {
+        text: "Working at <i>new</i>cleo",
+        href: "/join-the-team/working-at-newcleo/",
+      },
+      {
+        text: "Graduate opportunities & internships",
+        href: "/join-the-team/graduate-opportunities/",
+      },
+      { text: "Current vacancies", href: "/join-the-team/current-vacancies" },
+      {
+        text: "Armed Forces Network",
+        href: "/join-the-team/armed-forces-network",
+      },
+    ],
+  },
+];
+
 document.addEventListener("DOMContentLoaded", function () {
   const fontFaceCSS = `
     @font-face {
@@ -48,8 +115,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.head.appendChild(fontFaceStyle);
 
   // GLOBAL VARS
-  let menuButtonStateDesktop = false;
-  let menuButtonStateMobile = false;
+  let menuButtonStateDesktop = true; // CHANGE TO FALSE WHEN FINISHED
+  let menuButtonStateMobile = true;
 
   const state = {
     get menuButtonStateDesktop() {
@@ -179,74 +246,6 @@ function GreenHeader({ desktopState, mobileState }) {
   // Create the navigation links container
   const navLinks = document.createElement("ul");
   navLinks.className = "nav-links";
-
-  // Define the navigation items and their dropdowns
-  const navItems = [
-    {
-      text: "PRODUCTS AND SERVICES",
-      href: "/products-services/",
-      dropdown: [
-        {
-          text: "Our services and skills",
-          href: "/products-services/services-skills/",
-        },
-        {
-          text: "Delivering our Gen-IV vision",
-          href: "/products-services/delivering-our-gen-iv-vision/",
-        },
-      ],
-    },
-    {
-      text: "OUR TECHNOLOGY",
-      href: "/our-technology/",
-      dropdown: [
-        { text: "Reactors", href: "/our-technology/reactors/" },
-        { text: "Fuel", href: "/our-technology/fuel/" },
-      ],
-    },
-    {
-      text: "ABOUT US",
-      href: "/about-us/",
-      dropdown: [
-        { text: "<i>new</i>cleo Group", href: "/about-us/newcleo-group/" },
-        { text: "Our leadership", href: "/about-us/our-leadership/" },
-        {
-          text: "Partnerships and memberships",
-          href: "/about-us/partnerships-and-memberships/",
-        },
-        {
-          text: "Our purpose, vision, mission, and values",
-          href: "/about-us/purpose-vision-mission-values/",
-        },
-        { text: "Our ESG strategy", href: "/about-us/our-esg-strategy/" },
-        { text: "Locations", href: "/about-us/locations/" },
-      ],
-    },
-    {
-      text: "NEWS & INSIGHTS",
-      href: "/news-insights/",
-      dropdown: null, // No dropdown for this item
-    },
-    {
-      text: "JOIN OUR TEAM",
-      href: "/join-our-team/",
-      dropdown: [
-        {
-          text: "Working at <i>new</i>cleo",
-          href: "/join-the-team/working-at-newcleo/",
-        },
-        {
-          text: "Graduate opportunities & internships",
-          href: "/join-the-team/graduate-opportunities/",
-        },
-        { text: "Current vacancies", href: "/join-the-team/current-vacancies" },
-        {
-          text: "Armed Forces Network",
-          href: "/join-the-team/armed-forces-network",
-        },
-      ],
-    },
-  ];
 
   // Function to create a dropdown menu
   function createDropdown(items) {
@@ -432,6 +431,7 @@ function GreenHeader({ desktopState, mobileState }) {
           padding: 0;
           margin: 0;
           min-width: 200px;
+          z-index:1;
       }
 
       .dropdown li {
@@ -464,6 +464,10 @@ function GreenHeader({ desktopState, mobileState }) {
         justify-content:center;
         align-items:center;
         cursor:pointer;
+        svg {
+          color: rgb(2, 81, 82);
+          stroke: rgb(2, 81, 82);
+        }
         @media(max-width: 900px){
           display:none;
         } 
@@ -478,6 +482,10 @@ function GreenHeader({ desktopState, mobileState }) {
         justify-content:center;
         align-items:center;
         cursor:pointer;
+        svg {
+          color : rgb(2, 81, 82);
+          stroke: rgb(2, 81, 82);
+        }
         @media(max-width: 900px){
           display:flex;
         } 
@@ -532,34 +540,74 @@ function DesktopNavigation({ desktopState }) {
     document.body.appendChild(desktopNav);
   }
 
-  // Function to update navigation based on the state
-  const updateNavigation = () => {
-    if (desktopState.menuButtonStateDesktop) {
-      desktopNav.className = "desktopNavigationContainer";
-    } else {
-      desktopNav.className = "hideNavbar";
-    }
-  };
+  // const updateNavigation = () => {
+  //   if (desktopState.menuButtonStateDesktop) {
+  //     desktopNav.className = "desktopNavigationContainer";
+  //   } else {
+  //     desktopNav.className = "hideNavbar";
+  //   }
+  // };
 
-  // Watch for changes to desktopState.menuButtonStateDesktop using Object.defineProperty
+  // USE THIS CODE FOR OTHER CONDITIONAL RENDERING
   Object.defineProperty(desktopState, "menuButtonStateDesktop", {
     set(newValue) {
       this._menuButtonStateDesktop = newValue;
-      updateNavigation(); // Call update function whenever the state changes
+      updateNavigation();
     },
     get() {
       return this._menuButtonStateDesktop;
     },
   });
 
-  // Initial update when the component is created
-  updateNavigation();
+  // updateNavigation();
 
-  if (!document.querySelector("#desktopNavStyles")) {
-    const style = document.createElement("style");
-    style.id = "desktopNavStyles"; // Give an ID to prevent duplicates
-    style.textContent = `
+  // NAV HEADER
+  const navContainer = document.createElement("div");
+  navContainer.className = "navList";
+  const navTitle = document.createElement("div");
+  navTitle.className = "navTitle";
+  navTitle.innerHTML = "<p>Navigation</p>";
+  navContainer.appendChild(navTitle);
+  // NAV HEADER
 
+  // ROUTES CONTAINER
+  const routesContainer = document.createElement("div");
+  routesContainer.className = "routesContainer";
+  const mainRoutes = document.createElement("ul");
+  mainRoutes.className = "mainRoutesContainer";
+  let subRoutes = [];
+
+  navItems.map((item) => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    const arrow = document.createElement("span");
+    arrow.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 32 32" aria-hidden="true"><path d="M22 16L12 26 10.6 24.6 19.2 16 10.6 7.4 12 6z"></path></svg>`;
+    a.href = item.href;
+    a.innerHTML = item.text;
+
+    li.appendChild(a);
+    li.appendChild(arrow);
+
+    li.addEventListener("mouseenter", () => {
+      if (item.dropdown) {
+        subRoutes = item.dropdown;
+      } else {
+        subRoutes = [];
+      }
+    });
+
+    mainRoutes.appendChild(li);
+  });
+
+  routesContainer.appendChild(mainRoutes);
+  // ROUTES CONTAINER
+
+  navContainer.appendChild(routesContainer);
+  desktopNav.appendChild(navContainer);
+
+  const style = document.createElement("style");
+  style.id = "desktopNavStyles"; // Give an ID to prevent duplicates
+  style.textContent = `
         @keyframes showNavbar {
           0% {
             height: 0px;
@@ -567,14 +615,14 @@ function DesktopNavigation({ desktopState }) {
           }
         
           100% {
-           height: calc(100vh - 104px);
+           height: calc(100vh - 104px - 5rem);
            opacity: 1;
           }
         }
 
           @keyframes hideNav {        
           0% {
-           height: calc(100vh - 104px);
+           height: calc(100vh - 104px - 5rem);
            opacity: 1;
           }
           100% {
@@ -595,8 +643,54 @@ function DesktopNavigation({ desktopState }) {
         animation-timing-function: ease-in;
         animation-fill-mode: forwards;
         overflow:hidden;
-        
+        padding-top: 5rem;
+        display: flex;
+        flex-direction: column;
       }
+
+      .navTitle{
+        color:white;
+        font-weight: 700;
+        font-size:1.6rem;
+        position:relative;
+        width: 70%;
+      }
+
+      .navTitle p {
+        margin: 0px;
+      }
+
+      .navTitle p::before{
+        content: " ";
+        width: calc(100% - 0.1875rem);
+        height: 0.1875rem;
+        background-color: transparent;
+        position: absolute;
+        left: 0px;
+        bottom: -0.5rem;
+        border-left: 0.1875rem solid transparent;
+        border-bottom: 0.1875rem solid rgb(87, 229, 229);
+      }
+
+       .navTitle p::after{
+        content: " ";
+        width: calc(100% - 0.1875rem);
+        height: 0.1875rem;
+        background-color: transparent;
+        position: absolute;
+        left: 0px;
+        bottom: -0.5rem;
+        border-left: 0.1875rem solid transparent;
+        border-bottom: 0.1875rem solid rgb(87, 229, 229);
+      }
+
+      .navList{ 
+        width: 80%;
+        margin: 0 auto;
+        display:flex;
+        flex-direction:column;
+      }
+
       .hideNavbar {
         width: 100vw;
         position: absolute;
@@ -609,7 +703,41 @@ function DesktopNavigation({ desktopState }) {
         animation-fill-mode: forwards;
         overflow:hidden;
       }
-    `;
-    document.head.appendChild(style);
+
+      .routesContainer{
+        display:flex;
+        gap: 10px;
+      }
+
+      .mainRoutesContainer{
+        display:flex;
+        flex-direction: column;
+        gap:2rem;
+        padding-top:15px;
+        list-style:none;
+        padding-left: 0px;
+      }
+
+      .mainRoutesContainer li {
+        display:flex;
+        align-items:center;
+        gap: 10px;
+        cursor:pointer;
+      }
+
+      .mainRoutesContainer li a {
+        font-size: 1.25rem;
+        text-decoration: none;
+        color:white;
+        font-weight: lighter;
+      }
+
+      .mainRoutesContainer li span {
+        svg {
+          color:white;
+      }
+    }
   }
+`;
+  document.head.appendChild(style);
 }
