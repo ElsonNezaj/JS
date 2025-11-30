@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.head.appendChild(fontFaceStyle);
 
   // GLOBAL VARS
-  let menuButtonStateDesktop = true; // CHANGE TO FALSE WHEN FINISHED
+  let menuButtonStateDesktop = false; // CHANGE TO FALSE WHEN FINISHED
   let menuButtonStateMobile = true;
 
   const state = {
@@ -540,13 +540,13 @@ function DesktopNavigation({ desktopState }) {
     document.body.appendChild(desktopNav);
   }
 
-  // const updateNavigation = () => {
-  //   if (desktopState.menuButtonStateDesktop) {
-  //     desktopNav.className = "desktopNavigationContainer";
-  //   } else {
-  //     desktopNav.className = "hideNavbar";
-  //   }
-  // };
+  const updateNavigation = () => {
+    if (desktopState.menuButtonStateDesktop) {
+      desktopNav.className = "desktopNavigationContainer";
+    } else {
+      desktopNav.className = "hideNavbar";
+    }
+  };
 
   // USE THIS CODE FOR OTHER CONDITIONAL RENDERING
   Object.defineProperty(desktopState, "menuButtonStateDesktop", {
@@ -559,7 +559,7 @@ function DesktopNavigation({ desktopState }) {
     },
   });
 
-  // updateNavigation();
+  updateNavigation();
 
   // NAV HEADER
   const navContainer = document.createElement("div");
