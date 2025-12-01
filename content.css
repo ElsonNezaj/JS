@@ -1,0 +1,5 @@
+.contentContainer {
+  min-height: calc(100dvh - 100px);
+  margin-top: -26px;
+  background-color: red;
+}

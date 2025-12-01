@@ -1,3 +1,4 @@
+// Define navItems globally
 const navItems = [
   {
     text: "PRODUCTS AND SERVICES",
@@ -65,13 +66,17 @@ const navItems = [
   },
 ];
 
+// GLOBAL VARS - will be managed by main app
 let menuButtonStateDesktop = false;
 let menuButtonStateMobile = true;
 
+// Main initialization function that returns the complete header
 function initializeHeader() {
+  // Create the main header container
   const headerContainer = document.createElement("div");
   headerContainer.className = "headerContainer";
 
+  // Add font faces
   const fontFaceCSS = `
     @font-face {
       font-family: 'Gotham';
@@ -115,34 +120,41 @@ function initializeHeader() {
   fontFaceStyle.textContent = fontFaceCSS;
   document.head.appendChild(fontFaceStyle);
 
+  // Create state object
   const state = {
     get menuButtonStateDesktop() {
       return menuButtonStateDesktop;
     },
     set menuButtonStateDesktop(value) {
       menuButtonStateDesktop = value;
+      // Update desktop navigation when state changes
       if (window.updateDesktopNavigation) {
         window.updateDesktopNavigation();
       }
     },
   };
 
+  // Create black header
   const blackHeader = createBlackHeader();
   headerContainer.appendChild(blackHeader);
 
+  // Create green header with state
   const greenHeader = createGreenHeader({
     desktopState: state,
     mobileState: menuButtonStateMobile,
   });
   headerContainer.appendChild(greenHeader);
 
+  // Add styles
   addHeaderStyles();
 
+  // Store state globally for DesktopNavigation to access
   window.headerState = state;
 
   return headerContainer;
 }
 
+// Black Header Component
 function createBlackHeader() {
   const container = document.createElement("div");
   container.className = "blackcontainer";
@@ -170,10 +182,12 @@ function createBlackHeader() {
   return container;
 }
 
+// Green Header Component
 function createGreenHeader({ desktopState, mobileState }) {
   const navbar = document.createElement("nav");
   navbar.className = "navbarContainer";
 
+  // Logo
   const logo = document.createElement("div");
   logo.className = "logo";
   const logoImg = document.createElement("img");
@@ -185,9 +199,11 @@ function createGreenHeader({ desktopState, mobileState }) {
   logo.appendChild(logoImg);
   navbar.appendChild(logo);
 
+  // Navigation links
   const navLinks = document.createElement("ul");
   navLinks.className = "nav-links";
 
+  // Create dropdown function
   function createDropdown(items) {
     const dropdown = document.createElement("ul");
     dropdown.className = "dropdown";
@@ -205,6 +221,7 @@ function createGreenHeader({ desktopState, mobileState }) {
     return dropdown;
   }
 
+  // Add navigation items
   navItems.forEach((item) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
@@ -234,9 +251,11 @@ function createGreenHeader({ desktopState, mobileState }) {
     navLinks.appendChild(li);
   });
 
+  // Desktop menu button
   const menuButtonDesktop = document.createElement("div");
   menuButtonDesktop.addEventListener("click", () => {
     desktopState.menuButtonStateDesktop = !desktopState.menuButtonStateDesktop;
+    // Update button appearance
     menuButtonDesktop.className = desktopState.menuButtonStateDesktop
       ? "selectedMenuButtonDesktop"
       : "menuButtonDesktop";
@@ -247,6 +266,7 @@ function createGreenHeader({ desktopState, mobileState }) {
   menuButtonDesktop.className = "menuButtonDesktop";
   menuButtonDesktop.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
 
+  // Mobile menu button
   const menuButtonMobile = document.createElement("div");
   menuButtonMobile.addEventListener("click", () => {
     mobileState = !mobileState;
@@ -267,11 +287,13 @@ function createGreenHeader({ desktopState, mobileState }) {
   return navbar;
 }
 
+// Desktop Navigation Component (Fixed position)
 function createDesktopNavigation({ desktopState }) {
   let desktopNav = document.querySelector(".desktopNavigationContainer");
 
   if (!desktopNav) {
     desktopNav = document.createElement("div");
+    desktopNav.className = "desktopNavigationContainer";
     // Append directly to body
     document.body.appendChild(desktopNav);
   }
@@ -344,11 +366,16 @@ function createDesktopNavigation({ desktopState }) {
       desktopNav.innerHTML = "";
       desktopNav.appendChild(navContainer);
       desktopNav.className = "desktopNavigationContainer";
+      // Add class to body when navigation is open
+      document.body.classList.add("desktop-nav-open");
     } else {
       desktopNav.className = "hideNavbar";
+      // Remove class from body when navigation is closed
+      document.body.classList.remove("desktop-nav-open");
     }
   };
 
+  // Store update function globally so GreenHeader can call it
   window.updateDesktopNavigation = updateNavigation;
 
   Object.defineProperty(desktopState, "menuButtonStateDesktop", {
@@ -363,9 +390,11 @@ function createDesktopNavigation({ desktopState }) {
 
   updateNavigation();
 
+  // Add Desktop Navigation styles
   addDesktopNavigationStyles();
 }
 
+// Add Desktop Navigation styles
 function addDesktopNavigationStyles() {
   const style = document.createElement("style");
   style.id = "desktopNavStyles";
@@ -377,14 +406,14 @@ function addDesktopNavigationStyles() {
       }
     
       100% {
-        height: calc(100vh - 104px - 5rem);
+        height: calc(100vh - 104px);
         opacity: 1;
       }
     }
 
     @keyframes hideNav {        
       0% {
-        height: calc(100vh - 104px - 5rem);
+        height: calc(100vh - 104px);
         opacity: 1;
       }
       100% {
@@ -396,7 +425,7 @@ function addDesktopNavigationStyles() {
 
     .desktopNavigationContainer {
       width: 100vw;
-      position: absolute;
+      position: fixed;
       left: 0;
       top: 104px;
       background-color: rgb(2, 81, 82);
@@ -408,7 +437,9 @@ function addDesktopNavigationStyles() {
       padding-top: 5rem;
       display: flex;
       flex-direction: column;
-      z-index: 1000;
+      z-index: 999;
+      overflow-y: auto;
+      max-height: calc(100vh - 104px);
     }
 
     .navTitle {
@@ -452,11 +483,12 @@ function addDesktopNavigationStyles() {
       margin: 0 auto;
       display: flex;
       flex-direction: column;
+      padding-bottom: 2rem;
     }
 
     .hideNavbar {
       width: 100vw;
-      position: absolute;
+      position: fixed;
       left: 0;
       top: 104px;
       background-color: rgb(2, 81, 82);
@@ -543,9 +575,32 @@ function addDesktopNavigationStyles() {
   document.head.appendChild(style);
 }
 
+// Add header styles with fixed position
 function addHeaderStyles() {
   const style = document.createElement("style");
   style.textContent = `
+    body {
+      font-family: 'Gotham', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      padding-top: 104px; /* Height of the fixed header */
+    }
+    
+    /* When desktop nav is open, prevent body scrolling */
+    body.desktop-nav-open {
+      overflow: hidden;
+      height: 100vh;
+    }
+    
+    .headerContainer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
     .blackcontainer {
       height: 40px;
       background-color: #333;
@@ -590,17 +645,6 @@ function addHeaderStyles() {
     
     .singleItem:hover {
       background-color: rgba(255, 255, 255, 0.15);
-    }
-    
-    body {
-      font-family: 'Gotham', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .headerContainer {
-      position: relative;
-      z-index: 100;
     }
     
     .navbarContainer {
@@ -698,7 +742,7 @@ function addHeaderStyles() {
       padding: 0;
       margin: 0;
       min-width: 200px;
-      z-index: 1;
+      z-index: 1001;
     }
     
     .dropdown li {
