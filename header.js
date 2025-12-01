@@ -1,3 +1,5 @@
+// Remove the DOMContentLoaded wrapper and make it synchronous
+// Define navItems globally
 const navItems = [
   {
     text: "PRODUCTS AND SERVICES",
@@ -42,7 +44,7 @@ const navItems = [
   {
     text: "NEWS & INSIGHTS",
     href: "/news-insights/",
-    dropdown: null, // No dropdown for this item
+    dropdown: null,
   },
   {
     text: "JOIN OUR TEAM",
@@ -65,7 +67,13 @@ const navItems = [
   },
 ];
 
-document.addEventListener("DOMContentLoaded", function () {
+// Create and return the header immediately
+const headerElement = (function () {
+  // Create the main header container
+  const headerContainer = document.createElement("div");
+  headerContainer.className = "headerContainer";
+
+  // Create font faces
   const fontFaceCSS = `
     @font-face {
       font-family: 'Gotham';
@@ -73,35 +81,30 @@ document.addEventListener("DOMContentLoaded", function () {
       font-weight: 400;
       font-style: normal;
     }
-
     @font-face {
       font-family: 'Gotham';
       src: url('https://www.newcleo.com/static/fonts/Gotham-Bold.woff2') format('woff2');
       font-weight: 700;
       font-style: normal;
     }
-
     @font-face {
       font-family: 'Gotham';
       src: url('https://www.newcleo.com/static/fonts/Gotham-BoldItalic.woff2') format('woff2');
       font-weight: 700;
       font-style: italic;
     }
-
     @font-face {
       font-family: 'Gotham';
       src: url('https://www.newcleo.com/static/fonts/Gotham-BookItalic.woff2') format('woff2');
       font-weight: 400;
       font-style: italic;
     }
-
     @font-face {
       font-family: 'Gotham';
       src: url('https://www.newcleo.com/static/fonts/Gotham-Ultra.woff2') format('woff2');
       font-weight: 900;
       font-style: normal;
     }
-
     @font-face {
       font-family: 'Gotham';
       src: url('https://www.newcleo.com/static/fonts/Gotham-Medium.woff2') format('woff2');
@@ -114,70 +117,20 @@ document.addEventListener("DOMContentLoaded", function () {
   fontFaceStyle.textContent = fontFaceCSS;
   document.head.appendChild(fontFaceStyle);
 
-  // GLOBAL VARS
-  let menuButtonStateDesktop = false;
-  let menuButtonStateMobile = true;
-
-  const state = {
-    get menuButtonStateDesktop() {
-      return menuButtonStateDesktop;
-    },
-    set menuButtonStateDesktop(value) {
-      menuButtonStateDesktop = value;
-    },
-  };
-
-  // Create the main header container
-  const headerContainer = document.createElement("div");
-  headerContainer.className = "headerContainer";
-
-  // Create and append all header components to the container
-  headerContainer.appendChild(createBlackHeader());
-  headerContainer.appendChild(
-    createGreenHeader({
-      desktopState: state,
-      mobileState: menuButtonStateMobile,
-    })
-  );
-
-  // Append the entire header container to the body
-  document.body.appendChild(headerContainer);
-
-  // Create the DesktopNavigation (this goes outside the header container)
-  createDesktopNavigation({ desktopState: state });
-});
-
-function createBlackHeader() {
-  const container = document.createElement("div");
-  container.className = "blackcontainer";
+  // Create black header
+  const blackHeader = document.createElement("div");
+  blackHeader.className = "blackcontainer";
 
   const items = [
-    {
-      href: "/about-us/newcleo-group/",
-      text: "newcleo Group",
-    },
-    {
-      href: "/press-media/",
-      text: "Press and media",
-    },
-    {
-      href: "/supply-chain/",
-      text: "Supply Chain",
-    },
-    {
-      href: "https://www.newcleo.com/investors/",
-      text: "Investors",
-    },
-    {
-      href: "/contact-us/",
-      text: "Contact us",
-    },
+    { href: "/about-us/newcleo-group/", text: "newcleo Group" },
+    { href: "/press-media/", text: "Press and media" },
+    { href: "/supply-chain/", text: "Supply Chain" },
+    { href: "https://www.newcleo.com/investors/", text: "Investors" },
+    { href: "/contact-us/", text: "Contact us" },
   ];
 
   const navContainer = document.createElement("div");
   navContainer.className = "navContainer";
-
-  container.appendChild(navContainer);
 
   items.forEach((item) => {
     const singleItem = document.createElement("a");
@@ -186,6 +139,91 @@ function createBlackHeader() {
     singleItem.innerHTML = item.text;
     navContainer.appendChild(singleItem);
   });
+
+  blackHeader.appendChild(navContainer);
+
+  // Create green header
+  const greenHeader = document.createElement("nav");
+  greenHeader.className = "navbarContainer";
+
+  const logo = document.createElement("div");
+  logo.className = "logo";
+  const logoImg = document.createElement("img");
+  logoImg.src =
+    "https://images.ctfassets.net/26ep875sz1dl/5tqbcXMxG54o08zYxhm3CT/0d9dd19f38a7fdd95bc2d8c1a9fd57c5/logo_white1__1_.svg";
+  logoImg.alt = "newcleo Logo";
+  logoImg.style.height = "40px";
+  logoImg.style.width = "7.86rem";
+  logo.appendChild(logoImg);
+  greenHeader.appendChild(logo);
+
+  const navLinks = document.createElement("ul");
+  navLinks.className = "nav-links";
+
+  // Create dropdown function
+  function createDropdown(items) {
+    const dropdown = document.createElement("ul");
+    dropdown.className = "dropdown";
+
+    items.forEach((item) => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.className = "dropdownLink";
+      a.href = item.href;
+      a.innerHTML = item.text;
+      li.appendChild(a);
+      dropdown.appendChild(li);
+    });
+
+    return dropdown;
+  }
+
+  // Add navigation items
+  navItems.forEach((item) => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    const arrow = document.createElement("span");
+    li.className = "navLinkContainer";
+    arrow.className = "arrow";
+    arrow.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" class="menu-arrow"><path d="M16 28L9 21 10.4 19.6 16 25.2 21.6 19.6 23 21z"></path></svg>`;
+    a.href = item.href;
+    a.innerHTML = item.text;
+    a.className = "linkLabel";
+    li.appendChild(a);
+
+    if (item.dropdown) {
+      li.appendChild(arrow);
+      const dropdown = createDropdown(item.dropdown);
+      li.appendChild(dropdown);
+
+      li.addEventListener("mouseenter", () => {
+        dropdown.style.display = "block";
+      });
+
+      li.addEventListener("mouseleave", () => {
+        dropdown.style.display = "none";
+      });
+    }
+
+    navLinks.appendChild(li);
+  });
+
+  // Add menu buttons (state will be managed by separate script)
+  const menuButtonDesktop = document.createElement("div");
+  menuButtonDesktop.className = "menuButtonDesktop";
+  menuButtonDesktop.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
+  navLinks.appendChild(menuButtonDesktop);
+
+  const menuButtonMobile = document.createElement("div");
+  menuButtonMobile.className = "menuButtonMobile";
+  menuButtonMobile.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
+  navLinks.appendChild(menuButtonMobile);
+
+  greenHeader.appendChild(navLinks);
+
+  // Add headers to container
+  headerContainer.appendChild(blackHeader);
+  headerContainer.appendChild(greenHeader);
 
   // Add styles
   const style = document.createElement("style");
@@ -235,125 +273,7 @@ function createBlackHeader() {
     .singleItem:hover {
       background-color: rgba(255, 255, 255, 0.15);
     }
-  `;
-  document.head.appendChild(style);
-
-  return container;
-}
-
-function createGreenHeader({ desktopState, mobileState }) {
-  const navbar = document.createElement("nav");
-  navbar.className = "navbarContainer";
-
-  // Create the logo
-  const logo = document.createElement("div");
-  logo.className = "logo";
-
-  const logoImg = document.createElement("img");
-  logoImg.src =
-    "https://images.ctfassets.net/26ep875sz1dl/5tqbcXMxG54o08zYxhm3CT/0d9dd19f38a7fdd95bc2d8c1a9fd57c5/logo_white1__1_.svg";
-  logoImg.alt = "newcleo Logo";
-  logoImg.style.height = "40px";
-  logoImg.style.width = "7.86rem";
-
-  logo.appendChild(logoImg);
-  navbar.appendChild(logo);
-
-  // Create the navigation links container
-  const navLinks = document.createElement("ul");
-  navLinks.className = "nav-links";
-
-  // Function to create a dropdown menu
-  function createDropdown(items) {
-    const dropdown = document.createElement("ul");
-    dropdown.className = "dropdown";
-
-    items.forEach((item) => {
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-      a.className = "dropdownLink";
-      a.href = item.href;
-      a.innerHTML = item.text;
-      li.appendChild(a);
-      dropdown.appendChild(li);
-    });
-
-    return dropdown;
-  }
-
-  // Add navigation items to the navbar
-  navItems.forEach((item) => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    const arrow = document.createElement("span");
-    li.className = "navLinkContainer";
-    arrow.className = "arrow";
-    arrow.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" class="menu-arrow"><path d="M16 28L9 21 10.4 19.6 16 25.2 21.6 19.6 23 21z"></path></svg>`;
-    a.href = item.href;
-    a.innerHTML = item.text;
-    a.className = "linkLabel";
-    li.appendChild(a);
-    if (item.dropdown) {
-      li.appendChild(arrow);
-    }
-
-    if (item.dropdown) {
-      const dropdown = createDropdown(item.dropdown);
-      li.appendChild(dropdown);
-
-      // Add hover event listeners
-      li.addEventListener("mouseenter", () => {
-        dropdown.style.display = "block";
-      });
-
-      li.addEventListener("mouseleave", () => {
-        dropdown.style.display = "none";
-      });
-    }
-
-    navLinks.appendChild(li);
-  });
-
-  // DESKTOP MENU BUTTON
-  const menuButtonDesktop = document.createElement("div");
-  menuButtonDesktop.addEventListener("click", () => {
-    desktopState.menuButtonStateDesktop = !desktopState.menuButtonStateDesktop;
-    // Update class dynamically
-    menuButtonDesktop.className = desktopState.menuButtonStateDesktop
-      ? "selectedMenuButtonDesktop"
-      : "menuButtonDesktop";
-    // Update SVG dynamically
-    menuButtonDesktop.innerHTML = desktopState.menuButtonStateDesktop
-      ? `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path></svg>`
-      : `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
-  });
-
-  menuButtonDesktop.className = "menuButtonDesktop";
-  menuButtonDesktop.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
-
-  // MOBILE MENU BUTTON
-  const menuButtonMobile = document.createElement("div");
-  menuButtonMobile.addEventListener("click", () => {
-    mobileState = !mobileState;
-    // Update class dynamically
-    menuButtonMobile.className = mobileState
-      ? "selectedMenuButtonMobile"
-      : "menuButtonMobile";
-    // Update SVG dynamically
-    menuButtonMobile.innerHTML = mobileState
-      ? `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path></svg>`
-      : `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
-  });
-  menuButtonMobile.className = "menuButtonMobile";
-  menuButtonMobile.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
-
-  navLinks.appendChild(menuButtonDesktop);
-  navLinks.appendChild(menuButtonMobile);
-  navbar.appendChild(navLinks);
-
-  // Add styles
-  const style = document.createElement("style");
-  style.textContent = `
+    
     body {
       font-family: 'Gotham', Arial, sans-serif;
       margin: 0;
@@ -361,9 +281,8 @@ function createGreenHeader({ desktopState, mobileState }) {
     }
     
     .headerContainer {
-      position: fixed;
+      position: relative;
       z-index: 100;
-      width: 100dvw;
     }
     
     .navbarContainer {
@@ -576,276 +495,8 @@ function createGreenHeader({ desktopState, mobileState }) {
   `;
   document.head.appendChild(style);
 
-  return navbar;
-}
+  return headerContainer;
+})();
 
-function createDesktopNavigation({ desktopState }) {
-  let desktopNav = document.querySelector(".desktopNavigationContainer");
-
-  if (!desktopNav) {
-    desktopNav = document.createElement("div");
-    desktopNav.className = "desktopNavigationContainer";
-    // Append directly to body (outside the header container)
-    document.body.appendChild(desktopNav);
-  }
-
-  // NAV HEADER
-  const navContainer = document.createElement("div");
-  navContainer.className = "navList";
-  const navTitle = document.createElement("div");
-  navTitle.className = "navTitle";
-  navTitle.innerHTML = "<p>Navigation</p>";
-  navContainer.appendChild(navTitle);
-
-  const routesContainer = document.createElement("div");
-  routesContainer.className = "routesContainer";
-  const mainRoutes = document.createElement("ul");
-  mainRoutes.className = "mainRoutesContainer";
-
-  const subRoutesContainer = document.createElement("ul");
-  subRoutesContainer.className = "subRoutesContainer";
-
-  const updateSubRoutes = (items) => {
-    subRoutesContainer.innerHTML = "";
-
-    if (items && items.length > 0) {
-      items.forEach((item) => {
-        const li = document.createElement("li");
-        const p = document.createElement("p");
-        p.innerHTML = item.text;
-        li.appendChild(p);
-
-        li.addEventListener("click", () => {
-          window.location.href = item.href;
-        });
-
-        li.style.cursor = "pointer";
-        subRoutesContainer.appendChild(li);
-      });
-    }
-  };
-
-  updateSubRoutes([]);
-
-  navItems.forEach((item) => {
-    const li = document.createElement("li");
-    const p = document.createElement("p");
-    const arrow = document.createElement("span");
-    arrow.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 32 32" aria-hidden="true"><path d="M22 16L12 26 10.6 24.6 19.2 16 10.6 7.4 12 6z"></path></svg>`;
-    p.innerHTML = item.text;
-
-    li.appendChild(p);
-    li.appendChild(arrow);
-
-    li.addEventListener("click", () => {
-      if (item.dropdown) {
-        updateSubRoutes(item.dropdown);
-      } else {
-        window.location.href = item.href;
-      }
-    });
-
-    mainRoutes.appendChild(li);
-  });
-
-  routesContainer.appendChild(mainRoutes);
-  routesContainer.appendChild(subRoutesContainer);
-  navContainer.appendChild(routesContainer);
-
-  const updateNavigation = () => {
-    if (desktopState.menuButtonStateDesktop) {
-      desktopNav.innerHTML = "";
-      desktopNav.appendChild(navContainer);
-      desktopNav.className = "desktopNavigationContainer";
-    } else {
-      desktopNav.className = "hideNavbar";
-    }
-  };
-
-  Object.defineProperty(desktopState, "menuButtonStateDesktop", {
-    set(newValue) {
-      this._menuButtonStateDesktop = newValue;
-      updateNavigation();
-    },
-    get() {
-      return this._menuButtonStateDesktop;
-    },
-  });
-
-  updateNavigation();
-
-  // Add styles
-  const style = document.createElement("style");
-  style.textContent = `
-    @keyframes showNavbar {
-      0% {
-        height: 0px;
-        opacity: 0;
-      }
-    
-      100% {
-        height: calc(100vh - 104px - 5rem);
-        opacity: 1;
-      }
-    }
-
-    @keyframes hideNav {        
-      0% {
-        height: calc(100vh - 104px - 5rem);
-        opacity: 1;
-      }
-      100% {
-        height: 0px;
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    .desktopNavigationContainer {
-      width: 100vw;
-      position: absolute;
-      left: 0;
-      top: 104px;
-      background-color: rgb(2, 81, 82);
-      animation-name: showNavbar;
-      animation-duration: 0.5s;
-      animation-timing-function: ease-in;
-      animation-fill-mode: forwards;
-      overflow: hidden;
-      padding-top: 5rem;
-      display: flex;
-      flex-direction: column;
-      z-index: 1000;
-    }
-
-    .navTitle {
-      color: white;
-      font-weight: 700;
-      font-size: 1.6rem;
-      position: relative;
-      width: 70%;
-    }
-
-    .navTitle p {
-      margin: 0px;
-    }
-
-    .navTitle p::before {
-      content: " ";
-      width: calc(100% - 0.1875rem);
-      height: 0.1875rem;
-      background-color: transparent;
-      position: absolute;
-      left: 0px;
-      bottom: -0.5rem;
-      border-left: 0.1875rem solid transparent;
-      border-bottom: 0.1875rem solid rgb(87, 229, 229);
-    }
-
-    .navTitle p::after {
-      content: " ";
-      width: calc(100% - 0.1875rem);
-      height: 0.1875rem;
-      background-color: transparent;
-      position: absolute;
-      left: 0px;
-      bottom: -0.5rem;
-      border-left: 0.1875rem solid transparent;
-      border-bottom: 0.1875rem solid rgb(87, 229, 229);
-    }
-
-    .navList { 
-      width: 80%;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .hideNavbar {
-      width: 100vw;
-      position: absolute;
-      left: 0;
-      top: 104px;
-      background-color: rgb(2, 81, 82);
-      animation-name: hideNav;
-      animation-duration: 0.5s;
-      animation-timing-function: ease-in;
-      animation-fill-mode: forwards;
-      overflow: hidden;
-    }
-
-    .routesContainer {
-      display: flex;
-      gap: 50px;
-      margin-top: 2rem;
-    }
-
-    .mainRoutesContainer {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      padding-top: 15px;
-      list-style: none;
-      padding-left: 0px;
-      min-width: 300px;
-    }
-
-    .mainRoutesContainer li {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      padding: 10px 0;
-    }
-
-    .mainRoutesContainer li:hover p {
-      color: rgb(237, 108, 34);
-    }
-
-    .mainRoutesContainer li:hover span svg {
-      color: rgb(237, 108, 34);
-    }
-
-    .mainRoutesContainer li p {
-      font-size: 1.25rem;
-      text-decoration: none;
-      color: white;
-      font-weight: lighter;
-      margin: 0;
-      transition: color 0.3s;
-    }
-    
-    .mainRoutesContainer li span svg {
-      color: white;
-      transition: color 0.3s;
-    }
-
-    .subRoutesContainer {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding-top: 15px;
-      list-style: none;
-      min-width: 450px;
-    }
-
-    .subRoutesContainer li {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .subRoutesContainer li:hover p {
-      color: rgb(237, 108, 34);
-    }
-
-    .subRoutesContainer li p {
-      font-size: 1.2rem;
-      text-decoration: none;
-      color: white;
-      font-weight: lighter;
-      margin: 0;
-      transition: color 0.3s;
-    }
-  `;
-  document.head.appendChild(style);
-}
+// Export the header element
+export default headerElement;

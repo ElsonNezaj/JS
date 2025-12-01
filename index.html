@@ -4,8 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <script type="module">
+      import headerElement from "./header.js";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.insertBefore(headerElement, document.body.firstChild);
+      });
+
+      const script = document.currentScript;
+      const observer = new MutationObserver(() => {
+        if (document.body) {
+          document.body.insertBefore(headerElement, document.body.firstChild);
+          observer.disconnect();
+        }
+      });
+
+      observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true,
+      });
+    </script>
+
+    <script type="module" src="./global_functions/getComponents.js"></script>
   </head>
   <body>
-    <script src="./header.js"></script>
+    <div id="content-here"></div>
   </body>
 </html>
