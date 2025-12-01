@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.head.appendChild(fontFaceStyle);
 
   // GLOBAL VARS
-  let menuButtonStateDesktop = false; // CHANGE TO FALSE WHEN FINISHED
+  let menuButtonStateDesktop = false;
   let menuButtonStateMobile = true;
 
   const state = {
@@ -127,16 +127,27 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   };
 
-  // Create the navbar container
-  BlackHeader();
-  GreenHeader({
-    desktopState: state,
-    mobileState: menuButtonStateMobile,
-  });
-  DesktopNavigation({ desktopState: state });
+  // Create the main header container
+  const headerContainer = document.createElement("div");
+  headerContainer.className = "headerContainer";
+
+  // Create and append all header components to the container
+  headerContainer.appendChild(createBlackHeader());
+  headerContainer.appendChild(
+    createGreenHeader({
+      desktopState: state,
+      mobileState: menuButtonStateMobile,
+    })
+  );
+
+  // Append the entire header container to the body
+  document.body.appendChild(headerContainer);
+
+  // Create the DesktopNavigation (this goes outside the header container)
+  createDesktopNavigation({ desktopState: state });
 });
 
-function BlackHeader() {
+function createBlackHeader() {
   const container = document.createElement("div");
   container.className = "blackcontainer";
 
@@ -168,64 +179,69 @@ function BlackHeader() {
 
   container.appendChild(navContainer);
 
-  items.map((item) => {
+  items.forEach((item) => {
     const singleItem = document.createElement("a");
     singleItem.className = "singleItem";
     singleItem.href = item.href;
     singleItem.innerHTML = item.text;
-
     navContainer.appendChild(singleItem);
   });
 
-  document.body.appendChild(container);
+  // Add styles
+  const style = document.createElement("style");
+  style.textContent = `
+    .blackcontainer {
+      height: 40px;
+      background-color: #333;
+      padding: 0px 15%;
+    }
+    
+    @media(max-width: 1550px) {
+      .blackcontainer {
+        padding: 0px 10%;
+      }
+    }
+    
+    @media(max-width: 1250px) {
+      .blackcontainer {
+        padding: 0px 10px;
+      }
+    }
+    
+    .navContainer {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      position: relative;
+      right: 15px;
+    }
+    
+    .singleItem {
+      color: white !important;
+      text-decoration: none !important;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 0px 10px;
+      cursor: pointer;
+      transition: all 0.5s;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+    
+    .singleItem:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+  `;
+  document.head.appendChild(style);
 
-  const blackContainerStyles = document.createElement("style");
-  blackContainerStyles.textContent = `
-          .blackcontainer {
-            height:40px;
-            background-color:#333;
-            padding: 0px 15%;
-            @media(max-width: 1550px){
-              padding: 0px 10%;
-            }
-            @media(max-width: 1250px){
-              padding: 0px 10px;
-            }
-          }
-
-          .navContainer {
-            display:flex;
-            height:100%;
-            width:100%;
-            align-items:center;
-            justify-content:flex-end;
-            gap:10px;
-            position:relative;
-            right:15px;
-          }
-
-          .singleItem {
-            color:white !important;
-            text-decoration: none !important;
-            font-size:12px;
-            font-weight:bold;
-            padding:0px 10px;
-            cursor:pointer;
-            transition: all 0.5s;
-            display:flex;
-            align-items:center;
-            height:100%;
-          }
-
-          .singleItem:hover{
-            background-color:rgba(255, 255, 255, 0.15);
-          }
-
-      `;
-  document.head.appendChild(blackContainerStyles);
+  return container;
 }
 
-function GreenHeader({ desktopState, mobileState }) {
+function createGreenHeader({ desktopState, mobileState }) {
   const navbar = document.createElement("nav");
   navbar.className = "navbarContainer";
 
@@ -315,7 +331,7 @@ function GreenHeader({ desktopState, mobileState }) {
   menuButtonDesktop.className = "menuButtonDesktop";
   menuButtonDesktop.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
 
-  // MOBILE  MENU BUTTON
+  // MOBILE MENU BUTTON
   const menuButtonMobile = document.createElement("div");
   menuButtonMobile.addEventListener("click", () => {
     mobileState = !mobileState;
@@ -335,208 +351,241 @@ function GreenHeader({ desktopState, mobileState }) {
   navLinks.appendChild(menuButtonMobile);
   navbar.appendChild(navLinks);
 
-  // Add the navbar to the body
-  document.body.appendChild(navbar);
-
-  // Add styles dynamically
+  // Add styles
   const style = document.createElement("style");
   style.textContent = `
-      body {
-        font-family: 'Gotham', Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-      }
-
+    body {
+      font-family: 'Gotham', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .headerContainer {
+      position: fixed;
+      z-index: 100;
+      width: 100dvw;
+    }
+    
+    .navbarContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(2, 81, 82);
+      padding: 10px 15%;
+      border-radius: 0px;
+    }
+    
+    @media(max-width: 1550px) {
       .navbarContainer {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          background-color:rgb(2, 81, 82);
-          padding: 10px 15%;
-          border-radius:0px;
-          @media(max-width: 1550px){
-            padding: 10px 10%;
-          }
-          @media(max-width: 1250px){
-            padding: 10px 10px;
-          }
+        padding: 10px 10%;
       }
-
+    }
+    
+    @media(max-width: 1250px) {
+      .navbarContainer {
+        padding: 10px 10px;
+      }
+    }
+    
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    
+    @media(max-width: 1250px) {
       .nav-links {
-          list-style: none;
-          display: flex;
-          gap:25px;
-          margin: 0;
-          padding: 0;
-           @media(max-width: 1250px){
-            gap: 5px;
-          }
+        gap: 5px;
       }
-
+    }
+    
+    .nav-links li {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    @media(max-width: 900px) {
       .nav-links li {
-          position: relative;
-          display:flex;
-          flex-direction: row;
-          align-items:center;
-          gap:5px;
-          @media(max-width: 900px){
-            display:none;
-          }
+        display: none;
       }
-
-      .arrow {
-          color: white;
-          text-decoration: none;
-          display: block;
-          transition: all 0.3s;
-      }
-
-      .nav-links li a {
-          color: white;
-          text-decoration: none;
-          display: block;
-          transition: all 0.3s;
-          font-size: 12px;
-      }
-
-      .arrow { 
-        font-size: 12px;
-        display:flex;
-        align-items:center;
-        color: white;
-        text-decoration: none;
-        transition: all 0.3s;
-        position:relative;
-        top:-5px;
-      }
-
-      .nav-links li:hover {
-        .linkLabel {
-          color:rgb(237, 108, 34);
-        };
-        .arrow {
-            color:rgb(237, 108, 34);
-            rotate: 180deg;
-            top:5px;
-        }
-      }
-
-      .dropdown {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          background-color: #444;
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          min-width: 200px;
-          z-index:1;
-      }
-
-      .dropdown li {
+    }
+    
+    .arrow {
+      color: white;
+      text-decoration: none;
+      display: block;
+      transition: all 0.3s;
+    }
+    
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      transition: all 0.3s;
+      font-size: 12px;
+    }
+    
+    .arrow { 
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+      position: relative;
+      top: -5px;
+    }
+    
+    .nav-links li:hover .linkLabel {
+      color: rgb(237, 108, 34);
+    }
+    
+    .nav-links li:hover .arrow {
+      color: rgb(237, 108, 34);
+      transform: rotate(180deg);
+      top: 5px;
+    }
+    
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #444;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      min-width: 200px;
+      z-index: 1;
+    }
+    
+    .dropdown li {
       transition: all 0.2s;
-      cusor:pointer;
-        display:flex;
-        justify-content:center;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .dropdown li a {
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      justify-content: flex-start;
+      font-size: 14px;
+      border-bottom: solid 1px grey;
+    }
+    
+    .dropdown li:hover {
+      background-color: rgb(148, 148, 148) !important;
+    }
+    
+    .dropdown li:hover a {
+      color: rgb(198, 198, 198) !important;
+    }
+    
+    .menuButtonDesktop {
+      width: 32px;
+      height: 32px;
+      background-color: white;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .menuButtonDesktop svg {
+      color: rgb(2, 81, 82);
+      stroke: rgb(2, 81, 82);
+    }
+    
+    @media(max-width: 900px) {
+      .menuButtonDesktop {
+        display: none;
       }
-
-      .dropdown li a {
-          width: 100%;
-          padding: 10px;
-          display: flex;
-          justify-content:flex-start;
-          font-size: 14px;
-          border-bottom: solid 1px grey;
+    }
+    
+    .menuButtonMobile {
+      width: 32px;
+      height: 32px;
+      background-color: white;
+      border-radius: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .menuButtonMobile svg {
+      color: rgb(2, 81, 82);
+      stroke: rgb(2, 81, 82);
+    }
+    
+    @media(max-width: 900px) {
+      .menuButtonMobile {
+        display: flex;
       }
-
-      .dropdown li:hover {
-        background-color: rgb(148, 148, 148) !important;
-        color: rgb(198, 198, 198) !important;
+    }
+    
+    .selectedMenuButtonDesktop {
+      width: 32px;
+      height: 32px;
+      background-color: rgba(255, 255, 255, 0.125);
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .selectedMenuButtonDesktop svg {
+      color: white;
+    }
+    
+    @media(max-width: 900px) {
+      .selectedMenuButtonDesktop {
+        display: none;
       }
-
-      .menuButtonDesktop{
-        width:32px;
-        height:32px;
-        background-color:white;
-        border-radius:100%;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        cursor:pointer;
-        svg {
-          color: rgb(2, 81, 82);
-          stroke: rgb(2, 81, 82);
-        }
-        @media(max-width: 900px){
-          display:none;
-        } 
+    }
+    
+    .selectedMenuButtonMobile {
+      width: 32px;
+      height: 32px;
+      background-color: rgba(255, 255, 255, 0.125);
+      border-radius: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .selectedMenuButtonMobile svg {
+      color: white;
+    }
+    
+    @media(max-width: 900px) {
+      .selectedMenuButtonMobile {
+        display: flex;
       }
-
-      .menuButtonMobile{
-        width:32px;
-        height:32px;
-        background-color:white;
-        border-radius:100%;
-        display:none;
-        justify-content:center;
-        align-items:center;
-        cursor:pointer;
-        svg {
-          color : rgb(2, 81, 82);
-          stroke: rgb(2, 81, 82);
-        }
-        @media(max-width: 900px){
-          display:flex;
-        } 
-      }
-
-      .selectedMenuButtonDesktop{
-        width:32px;
-        height:32px;
-        background-color:rgba(255, 255, 255, 0.125);
-        border-radius:100%;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        cursor:pointer;
-        svg {
-          color:white;
-        }
-
-        @media(max-width: 900px){
-          display:none;
-        } 
-      }
-
-      .selectedMenuButtonMobile{
-       width:32px;
-        height:32px;
-        background-color:rgba(255, 255, 255, 0.125);
-        border-radius:100%;
-        display:none;
-        justify-content:center;
-        align-items:center;
-        cursor:pointer;
-        svg {
-          color:white;
-        }
-
-        @media(max-width: 900px){
-          display:flex;
-        } 
-      }
+    }
   `;
-
   document.head.appendChild(style);
+
+  return navbar;
 }
 
-function DesktopNavigation({ desktopState }) {
+function createDesktopNavigation({ desktopState }) {
   let desktopNav = document.querySelector(".desktopNavigationContainer");
 
   if (!desktopNav) {
     desktopNav = document.createElement("div");
     desktopNav.className = "desktopNavigationContainer";
+    // Append directly to body (outside the header container)
     document.body.appendChild(desktopNav);
   }
 
@@ -547,7 +596,6 @@ function DesktopNavigation({ desktopState }) {
   navTitle.className = "navTitle";
   navTitle.innerHTML = "<p>Navigation</p>";
   navContainer.appendChild(navTitle);
-  // NAV HEADER
 
   const routesContainer = document.createElement("div");
   routesContainer.className = "routesContainer";
@@ -579,7 +627,7 @@ function DesktopNavigation({ desktopState }) {
 
   updateSubRoutes([]);
 
-  navItems.map((item) => {
+  navItems.forEach((item) => {
     const li = document.createElement("li");
     const p = document.createElement("p");
     const arrow = document.createElement("span");
@@ -626,181 +674,178 @@ function DesktopNavigation({ desktopState }) {
 
   updateNavigation();
 
+  // Add styles
   const style = document.createElement("style");
-  style.id = "desktopNavStyles";
   style.textContent = `
-        @keyframes showNavbar {
-          0% {
-            height: 0px;
-            opacity: 0;
-          }
-        
-          100% {
-           height: calc(100vh - 104px - 5rem);
-           opacity: 1;
-          }
-        }
-
-          @keyframes hideNav {        
-          0% {
-           height: calc(100vh - 104px - 5rem);
-           opacity: 1;
-          }
-          100% {
-            height: 0px;
-            opacity: 0;
-            visibility:hidden;
-          }
-        }
-
-      .desktopNavigationContainer {
-        width: 100vw;
-        position: absolute;
-        left: 0;
-        top: 104px;
-        background-color: rgb(2, 81, 82);
-        animation-name: showNavbar;
-        animation-duration: 0.5s;
-        animation-timing-function: ease-in;
-        animation-fill-mode: forwards;
-        overflow:hidden;
-        padding-top: 5rem;
-        display: flex;
-        flex-direction: column;
-        z-index: 1000;
+    @keyframes showNavbar {
+      0% {
+        height: 0px;
+        opacity: 0;
       }
+    
+      100% {
+        height: calc(100vh - 104px - 5rem);
+        opacity: 1;
+      }
+    }
 
-      .navTitle{
-        color:white;
-        font-weight: 700;
-        font-size:1.6rem;
-        position:relative;
-        width: 70%;
+    @keyframes hideNav {        
+      0% {
+        height: calc(100vh - 104px - 5rem);
+        opacity: 1;
       }
+      100% {
+        height: 0px;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
 
-      .navTitle p {
-        margin: 0px;
-      }
+    .desktopNavigationContainer {
+      width: 100vw;
+      position: absolute;
+      left: 0;
+      top: 104px;
+      background-color: rgb(2, 81, 82);
+      animation-name: showNavbar;
+      animation-duration: 0.5s;
+      animation-timing-function: ease-in;
+      animation-fill-mode: forwards;
+      overflow: hidden;
+      padding-top: 5rem;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+    }
 
-      .navTitle p::before{
-        content: " ";
-        width: calc(100% - 0.1875rem);
-        height: 0.1875rem;
-        background-color: transparent;
-        position: absolute;
-        left: 0px;
-        bottom: -0.5rem;
-        border-left: 0.1875rem solid transparent;
-        border-bottom: 0.1875rem solid rgb(87, 229, 229);
-      }
+    .navTitle {
+      color: white;
+      font-weight: 700;
+      font-size: 1.6rem;
+      position: relative;
+      width: 70%;
+    }
 
-       .navTitle p::after{
-        content: " ";
-        width: calc(100% - 0.1875rem);
-        height: 0.1875rem;
-        background-color: transparent;
-        position: absolute;
-        left: 0px;
-        bottom: -0.5rem;
-        border-left: 0.1875rem solid transparent;
-        border-bottom: 0.1875rem solid rgb(87, 229, 229);
-      }
+    .navTitle p {
+      margin: 0px;
+    }
 
-      .navList{ 
-        width: 80%;
-        margin: 0 auto;
-        display:flex;
-        flex-direction:column;
-      }
+    .navTitle p::before {
+      content: " ";
+      width: calc(100% - 0.1875rem);
+      height: 0.1875rem;
+      background-color: transparent;
+      position: absolute;
+      left: 0px;
+      bottom: -0.5rem;
+      border-left: 0.1875rem solid transparent;
+      border-bottom: 0.1875rem solid rgb(87, 229, 229);
+    }
 
-      .hideNavbar {
-        width: 100vw;
-        position: absolute;
-        left: 0;
-        top: 104px;
-        background-color: rgb(2, 81, 82);
-        animation-name: hideNav;
-        animation-duration: 0.5s;
-        animation-timing-function: ease-in;
-        animation-fill-mode: forwards;
-        overflow:hidden;
-      }
+    .navTitle p::after {
+      content: " ";
+      width: calc(100% - 0.1875rem);
+      height: 0.1875rem;
+      background-color: transparent;
+      position: absolute;
+      left: 0px;
+      bottom: -0.5rem;
+      border-left: 0.1875rem solid transparent;
+      border-bottom: 0.1875rem solid rgb(87, 229, 229);
+    }
 
-      .routesContainer{
-        display:flex;
-        gap: 50px;
-        margin-top: 2rem;
-      }
+    .navList { 
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
 
-      .mainRoutesContainer{
-        display:flex;
-        flex-direction: column;
-        gap:2rem;
-        padding-top:15px;
-        list-style:none;
-        padding-left: 0px;
-        min-width: 300px;
-      }
+    .hideNavbar {
+      width: 100vw;
+      position: absolute;
+      left: 0;
+      top: 104px;
+      background-color: rgb(2, 81, 82);
+      animation-name: hideNav;
+      animation-duration: 0.5s;
+      animation-timing-function: ease-in;
+      animation-fill-mode: forwards;
+      overflow: hidden;
+    }
 
-      .mainRoutesContainer li {
-        display:flex;
-        align-items:center;
-        justify-content: space-between;
-        cursor:pointer;
-        padding: 10px 0;
-      }
+    .routesContainer {
+      display: flex;
+      gap: 50px;
+      margin-top: 2rem;
+    }
 
-      .mainRoutesContainer li:hover {
-        p {
-          color: rgb(237, 108, 34);
-        }
-        span svg {
-          color: rgb(237, 108, 34);
-        }
-      }
+    .mainRoutesContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding-top: 15px;
+      list-style: none;
+      padding-left: 0px;
+      min-width: 300px;
+    }
 
-      .mainRoutesContainer li p {
-        font-size: 1.25rem;
-        text-decoration: none;
-        color:white;
-        font-weight: lighter;
-        margin: 0;
-        transition: color 0.3s;
-      }
-      
-      .mainRoutesContainer li span svg {
-        color:white;
-        transition: color 0.3s;
-      }
+    .mainRoutesContainer li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 10px 0;
+    }
 
-      .subRoutesContainer {
-        display:flex;
-        flex-direction: column;
-        gap:1rem;
-        padding-top:15px;
-        list-style:none;
-        min-width: 450px;
-      }
+    .mainRoutesContainer li:hover p {
+      color: rgb(237, 108, 34);
+    }
 
-      .subRoutesContainer li {
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-      }
+    .mainRoutesContainer li:hover span svg {
+      color: rgb(237, 108, 34);
+    }
 
-      .subRoutesContainer li:hover {
-        p {
-          color: rgb(237, 108, 34);
-        }
-      }
+    .mainRoutesContainer li p {
+      font-size: 1.25rem;
+      text-decoration: none;
+      color: white;
+      font-weight: lighter;
+      margin: 0;
+      transition: color 0.3s;
+    }
+    
+    .mainRoutesContainer li span svg {
+      color: white;
+      transition: color 0.3s;
+    }
 
-      .subRoutesContainer li p {
-        font-size: 1.2rem;
-        text-decoration: none;
-        color:white;
-        font-weight: lighter;
-        margin: 0;
-        transition: color 0.3s;
-      }
+    .subRoutesContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-top: 15px;
+      list-style: none;
+      min-width: 450px;
+    }
+
+    .subRoutesContainer li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .subRoutesContainer li:hover p {
+      color: rgb(237, 108, 34);
+    }
+
+    .subRoutesContainer li p {
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: white;
+      font-weight: lighter;
+      margin: 0;
+      transition: color 0.3s;
+    }
   `;
   document.head.appendChild(style);
 }
