@@ -540,15 +540,80 @@ function DesktopNavigation({ desktopState }) {
     document.body.appendChild(desktopNav);
   }
 
+  // NAV HEADER
+  const navContainer = document.createElement("div");
+  navContainer.className = "navList";
+  const navTitle = document.createElement("div");
+  navTitle.className = "navTitle";
+  navTitle.innerHTML = "<p>Navigation</p>";
+  navContainer.appendChild(navTitle);
+  // NAV HEADER
+
+  const routesContainer = document.createElement("div");
+  routesContainer.className = "routesContainer";
+  const mainRoutes = document.createElement("ul");
+  mainRoutes.className = "mainRoutesContainer";
+
+  const subRoutesContainer = document.createElement("ul");
+  subRoutesContainer.className = "subRoutesContainer";
+
+  const updateSubRoutes = (items) => {
+    subRoutesContainer.innerHTML = "";
+
+    if (items && items.length > 0) {
+      items.forEach((item) => {
+        const li = document.createElement("li");
+        const p = document.createElement("p");
+        p.innerHTML = item.text;
+        li.appendChild(p);
+
+        li.addEventListener("click", () => {
+          window.location.href = item.href;
+        });
+
+        li.style.cursor = "pointer";
+        subRoutesContainer.appendChild(li);
+      });
+    }
+  };
+
+  updateSubRoutes([]);
+
+  navItems.map((item) => {
+    const li = document.createElement("li");
+    const p = document.createElement("p");
+    const arrow = document.createElement("span");
+    arrow.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 32 32" aria-hidden="true"><path d="M22 16L12 26 10.6 24.6 19.2 16 10.6 7.4 12 6z"></path></svg>`;
+    p.innerHTML = item.text;
+
+    li.appendChild(p);
+    li.appendChild(arrow);
+
+    li.addEventListener("click", () => {
+      if (item.dropdown) {
+        updateSubRoutes(item.dropdown);
+      } else {
+        window.location.href = item.href;
+      }
+    });
+
+    mainRoutes.appendChild(li);
+  });
+
+  routesContainer.appendChild(mainRoutes);
+  routesContainer.appendChild(subRoutesContainer);
+  navContainer.appendChild(routesContainer);
+
   const updateNavigation = () => {
     if (desktopState.menuButtonStateDesktop) {
+      desktopNav.innerHTML = "";
+      desktopNav.appendChild(navContainer);
       desktopNav.className = "desktopNavigationContainer";
     } else {
       desktopNav.className = "hideNavbar";
     }
   };
 
-  // USE THIS CODE FOR OTHER CONDITIONAL RENDERING
   Object.defineProperty(desktopState, "menuButtonStateDesktop", {
     set(newValue) {
       this._menuButtonStateDesktop = newValue;
@@ -561,52 +626,8 @@ function DesktopNavigation({ desktopState }) {
 
   updateNavigation();
 
-  // NAV HEADER
-  const navContainer = document.createElement("div");
-  navContainer.className = "navList";
-  const navTitle = document.createElement("div");
-  navTitle.className = "navTitle";
-  navTitle.innerHTML = "<p>Navigation</p>";
-  navContainer.appendChild(navTitle);
-  // NAV HEADER
-
-  // ROUTES CONTAINER
-  const routesContainer = document.createElement("div");
-  routesContainer.className = "routesContainer";
-  const mainRoutes = document.createElement("ul");
-  mainRoutes.className = "mainRoutesContainer";
-  let subRoutes = [];
-
-  navItems.map((item) => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    const arrow = document.createElement("span");
-    arrow.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 32 32" aria-hidden="true"><path d="M22 16L12 26 10.6 24.6 19.2 16 10.6 7.4 12 6z"></path></svg>`;
-    a.href = item.href;
-    a.innerHTML = item.text;
-
-    li.appendChild(a);
-    li.appendChild(arrow);
-
-    li.addEventListener("mouseenter", () => {
-      if (item.dropdown) {
-        subRoutes = item.dropdown;
-      } else {
-        subRoutes = [];
-      }
-    });
-
-    mainRoutes.appendChild(li);
-  });
-
-  routesContainer.appendChild(mainRoutes);
-  // ROUTES CONTAINER
-
-  navContainer.appendChild(routesContainer);
-  desktopNav.appendChild(navContainer);
-
   const style = document.createElement("style");
-  style.id = "desktopNavStyles"; // Give an ID to prevent duplicates
+  style.id = "desktopNavStyles";
   style.textContent = `
         @keyframes showNavbar {
           0% {
@@ -646,6 +667,7 @@ function DesktopNavigation({ desktopState }) {
         padding-top: 5rem;
         display: flex;
         flex-direction: column;
+        z-index: 1000;
       }
 
       .navTitle{
@@ -706,7 +728,8 @@ function DesktopNavigation({ desktopState }) {
 
       .routesContainer{
         display:flex;
-        gap: 10px;
+        gap: 50px;
+        margin-top: 2rem;
       }
 
       .mainRoutesContainer{
@@ -716,28 +739,68 @@ function DesktopNavigation({ desktopState }) {
         padding-top:15px;
         list-style:none;
         padding-left: 0px;
+        min-width: 300px;
       }
 
       .mainRoutesContainer li {
         display:flex;
         align-items:center;
-        gap: 10px;
+        justify-content: space-between;
         cursor:pointer;
+        padding: 10px 0;
       }
 
-      .mainRoutesContainer li a {
+      .mainRoutesContainer li:hover {
+        p {
+          color: rgb(237, 108, 34);
+        }
+        span svg {
+          color: rgb(237, 108, 34);
+        }
+      }
+
+      .mainRoutesContainer li p {
         font-size: 1.25rem;
         text-decoration: none;
         color:white;
         font-weight: lighter;
+        margin: 0;
+        transition: color 0.3s;
+      }
+      
+      .mainRoutesContainer li span svg {
+        color:white;
+        transition: color 0.3s;
       }
 
-      .mainRoutesContainer li span {
-        svg {
-          color:white;
+      .subRoutesContainer {
+        display:flex;
+        flex-direction: column;
+        gap:1rem;
+        padding-top:15px;
+        list-style:none;
+        min-width: 450px;
       }
-    }
-  }
-`;
+
+      .subRoutesContainer li {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .subRoutesContainer li:hover {
+        p {
+          color: rgb(237, 108, 34);
+        }
+      }
+
+      .subRoutesContainer li p {
+        font-size: 1.2rem;
+        text-decoration: none;
+        color:white;
+        font-weight: lighter;
+        margin: 0;
+        transition: color 0.3s;
+      }
+  `;
   document.head.appendChild(style);
 }
