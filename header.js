@@ -50,7 +50,7 @@ const navItems = [
     href: "/join-our-team/",
     dropdown: [
       {
-        text: "Working at <i>new</i>cleo",
+        text: "Working at &nbsp; <i>new</i>cleo",
         href: "/join-the-team/working-at-newcleo/",
       },
       {

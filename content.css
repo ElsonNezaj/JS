@@ -7,10 +7,29 @@
   height: 100%;
   width: 100%;
   display: flex;
+  background-image: url("./assets/images/hero.jpg");
+  background-position: -9.5rem -42rem;
+  background-size: 150%;
+  background-repeat: no-repeat;
 }
 
 .leftSideContainer {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.backgroundContainer {
   width: 50%;
   height: 100%;
   background-color: rgb(2, 81, 82);
+  opacity: 0.5;
+}
+
+.labelsContainer {
+  height: 100%;
+  width: 50%;
+  z-index: 1;
+  position: absolute;
+  top: 0;
 }
