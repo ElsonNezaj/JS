@@ -32,4 +32,30 @@
   z-index: 1;
   position: absolute;
   top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleLabel {
+  font-size: 4.6rem;
+  word-wrap: break-word;
+  color: #fff;
+  margin-left: 3rem;
+  line-height: 65px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.titleLabel span {
+  color: #cbc74d;
+}
+
+.subTitleLabel {
+  font-size: 1.8rem;
+  color: #fff;
+  align-self: flex-start;
+  margin-left: 3rem;
+  opacity: 0.8;
 }
