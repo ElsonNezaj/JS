@@ -5,7 +5,7 @@ async function getContent() {
     "../content.html",
     ".contentContainer"
   );
-
+  extractedElement.style.height = "100%";
   const headerContainer = document.getElementById("content-here");
   headerContainer.appendChild(extractedElement);
 }

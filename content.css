@@ -1,5 +1,16 @@
 .contentContainer {
-  min-height: calc(100dvh - 100px);
-  margin-top: -26px;
-  background-color: red;
+  height: 100%;
+  width: 100%;
+}
+
+.landingSection {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.leftSideContainer {
+  width: 50%;
+  height: 100%;
+  background-color: rgb(2, 81, 82);
 }
