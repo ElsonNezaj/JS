@@ -92,3 +92,38 @@
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.311);
   }
 }
+
+.sectionsContainer {
+  display: flex;
+  height: 65%;
+  overflow-x: hidden;
+}
+
+.productsAndServicesSection {
+  height: 100%;
+  width: 100%;
+  min-width: calc(100vw - 15px);
+  display: flex;
+  flex-direction: row-reverse;
+  background-image: url("./assets/images/products_services.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.labelsRight {
+  width: 50%;
+  background-color: rgba(2, 81, 82, 0.5);
+}
+
+.mainLabel {
+  color: #fff;
+  margin-left: 25px;
+
+  font-size: 46px;
+}
+
+.labelsRight p {
+  color: #fff;
+  padding: 0px 25px;
+}
