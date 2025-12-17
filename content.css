@@ -93,14 +93,8 @@
   }
 }
 
-.sectionsContainer {
-  display: flex;
-  height: 65%;
-  overflow-x: hidden;
-}
-
-.productsAndServicesSection {
-  height: 100%;
+.infoContainer {
+  min-height: 60%;
   width: 100%;
   min-width: calc(100vw - 15px);
   display: flex;
@@ -119,11 +113,135 @@
 .mainLabel {
   color: #fff;
   margin-left: 25px;
-
   font-size: 46px;
+}
+
+.mainLabel span {
+  color: #cbc74d;
 }
 
 .labelsRight p {
   color: #fff;
   padding: 0px 25px;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+}
+
+.productsAndServicesContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: #025152;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+
+.cardsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  height: calc(100% - 37px);
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 20%;
+  height: 90%;
+  margin: auto 0px;
+  border-radius: 24px;
+  box-shadow: 0px 0px 5px 5px #00000021;
+  position: relative;
+}
+
+#popular {
+  position: relative;
+}
+
+#popular::after {
+  content: "Popular";
+  position: absolute;
+  right: -10%;
+  top: -2.5%;
+  background-color: #025152;
+  padding: 12px;
+  border-radius: 42px;
+  border: solid 1px #023e3f;
+  color: #fff;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #025152;
+  border-radius: 100%;
+  padding: 12px;
+  margin-top: 24px;
+  user-select: none;
+}
+
+.img {
+  width: 120px;
+  height: 120px;
+  filter: invert(1);
+}
+
+.cardTitle {
+  background-color: #025152;
+  text-align: center;
+  color: #fff;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  width: 100%;
+  font-size: 36px;
+}
+
+.serviceList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-left: 6px;
+  margin-right: 12px;
+}
+
+.listItem {
+  list-style: decimal-leading-zero;
+  color: #025152;
+  font-weight: bold;
+}
+
+.listItem span {
+  color: #000;
+  font-weight: normal;
+  word-spacing: 5px;
+}
+
+.button {
+  display: block;
+  margin-top: 15%;
+  border: none;
+  background-color: #025152;
+  color: #fff;
+  width: 50%;
+  height: 7%;
+  border-radius: 42px;
+  font-size: 16px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.button:hover {
+  width: 100%;
+  border-radius: 0px;
+  height: 15%;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
 }
