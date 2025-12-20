@@ -18,8 +18,7 @@ const navItems = [
     text: "OUR TECHNOLOGY",
     href: "/our-technology/",
     dropdown: [
-      { text: "Reactors", href: "/our-technology/reactors/" },
-      { text: "Fuel", href: "/our-technology/fuel/" },
+      { text: "Reactors & Fuels", href: "/our-technology/reactors-fuels" },
     ],
   },
   {
@@ -27,10 +26,6 @@ const navItems = [
     href: "/about-us/",
     dropdown: [
       { text: "<i>new</i>cleo Group", href: "/about-us/newcleo-group/" },
-      {
-        text: "Our purpose, vision, mission, and values",
-        href: "/about-us/purpose-vision-mission-values/",
-      },
       { text: "Locations", href: "/about-us/locations/" },
     ],
   },
@@ -47,7 +42,6 @@ const navItems = [
         text: "Working at &nbsp; <i>new</i>cleo",
         href: "/join-the-team/working-at-newcleo/",
       },
-      { text: "Current vacancies", href: "/join-the-team/current-vacancies" },
     ],
   },
 ];
