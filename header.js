@@ -8,10 +8,10 @@ const navItems = [
         text: "Our services and skills",
         href: "/products-services/services-skills/",
       },
-      {
-        text: "Delivering our Gen-IV vision",
-        href: "/products-services/delivering-our-gen-iv-vision/",
-      },
+      // {
+      //   text: "Delivering our Gen-IV vision",
+      //   href: "/products-services/delivering-our-gen-iv-vision/",
+      // },
     ],
   },
   {

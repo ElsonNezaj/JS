@@ -145,7 +145,6 @@
   display: flex;
   justify-content: center;
   gap: 48px;
-  min-height: calc(100% - 150px);
   padding-bottom: 42px;
   padding-top: 12px;
 }
@@ -232,12 +231,11 @@
   height: 7%;
   border-radius: 42px;
   font-size: 16px;
-  transition: all 0.3s;
+  transition: width 0.3s, border-radius 0.3s;
   cursor: pointer;
   padding: 12px;
   justify-self: flex-end;
-  position: absolute;
-  bottom: 7%;
+  margin-bottom: 24px;
 }
 
 .button:hover {
@@ -246,5 +244,5 @@
   height: 15%;
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
-  bottom: 0%;
+  margin-bottom: 0px;
 }
