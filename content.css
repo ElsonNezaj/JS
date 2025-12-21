@@ -246,3 +246,36 @@
   border-bottom-right-radius: 24px;
   margin-bottom: 0px;
 }
+
+.moreContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonContainer {
+  height: 72px;
+  width: 72px;
+  background-color: #025152;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.buttonContainer:hover {
+  background-color: #cbc74d;
+}
+
+.buttonContainer:hover .rightArrow {
+  filter: invert(0);
+}
+
+.rightArrow {
+  filter: invert(1);
+  width: 36px;
+  transition: all 0.3s;
+}
