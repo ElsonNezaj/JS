@@ -264,18 +264,38 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s;
+  position: relative;
 }
 
 .buttonContainer:hover {
   background-color: #cbc74d;
+  width: 120px;
+  border-radius: 24px;
 }
 
 .buttonContainer:hover .rightArrow {
   filter: invert(0);
+  opacity: 0;
+  display: none;
+}
+
+.buttonContainer:hover .label {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.3s;
 }
 
 .rightArrow {
   filter: invert(1);
   width: 36px;
   transition: all 0.3s;
+  display: block;
+  opacity: 1;
+  position: absolute;
+}
+
+.label {
+  visibility: hidden;
+  opacity: 0;
+  font-weight: bold;
 }
