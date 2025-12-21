@@ -145,7 +145,7 @@
   display: flex;
   justify-content: center;
   gap: 48px;
-  min-height: calc(100% - 37px);
+  min-height: calc(100% - 150px);
   padding-bottom: 42px;
   padding-top: 12px;
 }
@@ -235,6 +235,9 @@
   transition: all 0.3s;
   cursor: pointer;
   padding: 12px;
+  justify-self: flex-end;
+  position: absolute;
+  bottom: 7%;
 }
 
 .button:hover {
@@ -243,4 +246,5 @@
   height: 15%;
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
+  bottom: 0%;
 }
