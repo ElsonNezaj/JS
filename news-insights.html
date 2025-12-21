@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./news-insights.css" />
+    <script type="module">
+      import { initializeHeader, createDesktopNavigation } from "./header.js";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const header = initializeHeader();
+        document.body.insertBefore(header, document.body.firstChild);
+
+        createDesktopNavigation({ desktopState: window.headerState });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const newsContainer = document.querySelector(".news");
+        const template = document.querySelector(".singleNewsContainer");
+
+        if (!newsContainer || !template) return;
+
+        for (let i = 0; i < 9; i++) {
+          newsContainer.appendChild(template.cloneNode(true));
+        }
+      });
+    </script>
+    <title>News & Insights</title>
+  </head>
+  <body>
+    <section class="allNewsContainer">
+      <h1 class="sectionTitle">Latest News</h1>
+      <div class="news">
+        <div class="singleNewsContainer">
+          <div class="imageContainer">
+            <img
+              src="./assets/images/news-image.jpg"
+              alt="News image"
+              class="newsImage"
+            />
+          </div>
+          <div class="informationContainer">
+            <div class="topContainer">
+              <h2 class="title">News Title</h2>
+              <div class="menu">
+                <img
+                  src="./assets/images/menu-icon.svg"
+                  class="menuIcon"
+                  alt="menuIcon"
+                />
+              </div>
+            </div>
+            <div class="contentContainer">
+              <p class="content">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error
+                nostrum saepe dignissimos necessitatibus cum, natus itaque vel,
+                facilis ea impedit ex nulla quam repellendus eum dicta doloribus
+                aliquid odit et.
+              </p>
+              <p class="dateLabel">Published date : <span>17.10.2024</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

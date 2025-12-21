@@ -31,7 +31,7 @@ const navItems = [
   },
   {
     text: "NEWS & INSIGHTS",
-    href: "/news-insights/",
+    href: "./news-insights.html",
     dropdown: null,
   },
   {
