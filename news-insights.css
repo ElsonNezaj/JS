@@ -60,7 +60,7 @@ h1 {
   width: 70%;
   margin: 0 auto;
   padding-top: 32px;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 }
 
 .latestUpdateContainer {
@@ -148,4 +148,85 @@ h1 {
   background-size: cover;
   border-radius: 12px;
   min-height: calc(22rem - 48px);
+}
+
+.newsContainer {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 32px;
+  gap: 32px;
+}
+
+.filterContainer {
+  background-color: #fff;
+  padding: 12px;
+  border-radius: 12px;
+  width: 25%;
+}
+
+.filterTitle {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.optionsList {
+  padding: 0px;
+}
+
+.listItem {
+  list-style: none;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  margin: 6px 0px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.listItem:hover {
+  color: #fff;
+  background-color: #025152;
+}
+
+.listItem span {
+  color: #aaa;
+}
+
+.listItem:hover span {
+  color: #fff;
+}
+
+.paginationContainer {
+  border-top: solid 1px #ddd;
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.paginationButton {
+  width: 42px;
+  height: 32px;
+  background-color: #f6f6f6;
+  border: solid 1px #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.paginationButton:hover {
+  background-color: #025152;
+  color: #fff;
+}
+
+#selected {
+  background-color: #025152;
+  color: #fff;
 }
