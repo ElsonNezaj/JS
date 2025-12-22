@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./locations.css" />
+        <script type="module">
+            import { initializeHeader, createDesktopNavigation } from "./header.js";
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const header = initializeHeader();
+                document.body.insertBefore(header, document.body.firstChild);
+
+                createDesktopNavigation({ desktopState: window.headerState });
+            });
+        </script>
+    </head>
+    <body>
+
+        <div class="location-slider">
+            <div class="slides">
+                <a target="_blank" href="https://www.google.com/maps/place/White+Hills+Wind+Farm/data=!4m2!3m1!1s0x0:0xd7a9a1a390e2ff03?sa=X&ved=1t:2428&ictx=111">
+                    <img src="./assets/images/windFarmArizona.jpg" alt="wind farm"/>
+                </a>
+                <a target="_blank" href="https://www.google.com/maps/place/Big+Cypress+Solar/data=!4m2!3m1!1s0x0:0xf0f2ca63dee7cb5b?sa=X&ved=1t:2428&ictx=111">
+                    <img src="./assets/images/solarFarmArkansas.jpg" alt="solar farm 1"/>
+                </a>
+                <a target="_blank" href="https://www.google.com/maps/place/Alternative+Energy+Services+Inc/@28.5249633,-80.8194618,17z/data=!3m1!4b1!4m6!3m5!1s0x88e7721cb743c65d:0x2b59562bb4188a35!8m2!3d28.5249633!4d-80.8168869!16s%2Fg%2F1vn_zslz?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">
+                    <img src="./assets/images/solarFarmColorado.jpg" alt="solar farm 2"/> 
+                </a>
+            </div>
+            <button class="prev" onclick="prevSlide()">&#8592;</button>
+            <button class="next" onclick="nextSlide()">&#8594;</button>
+        </div>
+
+        <div class="content">
+
+            <div class="locations-container">
+                <h2>Find Us</h2>
+                <ul>
+                    <li>
+                        <a target="_blank" href="https://www.google.com/maps/place/White+Hills+Wind+Farm/data=!4m2!3m1!1s0x0:0xd7a9a1a390e2ff03?sa=X&ved=1t:2428&ictx=111">
+                            <span>Wind Farm Location</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.google.com/maps/place/Big+Cypress+Solar/data=!4m2!3m1!1s0x0:0xf0f2ca63dee7cb5b?sa=X&ved=1t:2428&ictx=111">
+                            <span>Solar Farm 1 Location</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.google.com/maps/place/Alternative+Energy+Services+Inc/@28.5249633,-80.8194618,17z/data=!3m1!4b1!4m6!3m5!1s0x88e7721cb743c65d:0x2b59562bb4188a35!8m2!3d28.5249633!4d-80.8168869!16s%2Fg%2F1vn_zslz?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">
+                            <span>Solar Farm 2 Location</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="appointment-container">
+                <h2>Make An Appointment</h2>
+                <form class="appointment-form">
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Surname">
+                    <input type="email" placeholder="xyz@provider.com">
+                    <label for="time">Select a time: </label>
+                    <select id="time" name="time">
+                        <option value="none">Time</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                    </select>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+        </div>
+    <script src="locations.js"></script>
+    </body>
+</html>
