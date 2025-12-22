@@ -163,6 +163,7 @@ h1 {
   padding: 12px;
   border-radius: 12px;
   width: 25%;
+  max-height: max-content;
 }
 
 .filterTitle {
@@ -229,4 +230,12 @@ h1 {
 #selected {
   background-color: #025152;
   color: #fff;
+}
+
+.allNewsContainer {
+  width: 75%;
+  padding: 12px;
+  background-color: #fff;
+  padding: 12px;
+  border-radius: 12px;
 }
