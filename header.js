@@ -163,7 +163,12 @@ function createGreenHeader({ desktopState, mobileState }) {
   logoImg.alt = "newcleo Logo";
   logoImg.style.height = "40px";
   logoImg.style.width = "7.86rem";
-  logo.appendChild(logoImg);
+
+  const a = document.createElement("a");
+  a.href = "index.html";
+  a.appendChild(logoImg)
+
+  logo.appendChild(a);
   navbar.appendChild(logo);
 
   const navLinks = document.createElement("ul");
