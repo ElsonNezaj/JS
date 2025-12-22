@@ -4,7 +4,7 @@
 }
 
 .landingSection {
-  height: 100%;
+  height: calc(100dvh - 117px);
   width: 100%;
   display: flex;
   background-image: url("./assets/images/hero.jpg");
