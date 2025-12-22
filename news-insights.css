@@ -1,6 +1,6 @@
 html,
 body {
-  height: calc(100% - 60px);
+  height: calc(100% - 50px);
   margin: 0;
 }
 
@@ -10,94 +10,43 @@ body {
   overflow-y: hidden;
 }
 
-.allNewsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-left: 12px;
-  padding-top: 12px;
-  width: 50%;
-  height: 100%;
-  overflow-y: hidden;
-}
-
-.news {
-  overflow-y: auto;
-  flex: 1;
-  height: 100%;
-}
-
-.sectionTitle {
-  margin: 0px;
-}
-
-.singleNewsContainer {
-  display: flex;
-  min-height: 120px;
+.titleContainer {
+  height: 15%;
   width: 100%;
-  gap: 12px;
-  padding-bottom: 12px;
-  border-bottom: solid 1px rgb(218, 218, 218);
-}
-
-.imageContainer {
-  height: 100%;
+  position: relative;
   display: flex;
   align-items: center;
 }
 
-.newsImage {
-  height: 100%;
-  max-height: 120px;
-}
-
-.informationContainer {
-  display: flex;
-  flex-direction: column;
+.background {
   width: 100%;
-  gap: 8px;
+  height: 100%;
+  background-image: url(./assets/images/sky-background.jpg);
+  background-position: center;
+  background-size: cover;
+  filter: grayscale(1) invert(0) opacity(0.2);
+  position: absolute;
+  z-index: 0;
 }
 
-.topContainer {
+.titleContent {
+  width: 80%;
+  height: 100%;
+  opacity: 1;
+  margin: 0 auto;
+  z-index: 1;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 5px;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .title {
   margin: 0px;
-  font-size: 20px;
+  font-size: 32px;
 }
 
-.menu {
-  cursor: pointer;
-}
-
-.menu:hover .menuIcon {
-  filter: invert(0);
-}
-
-.menuIcon {
-  height: 16px;
-  filter: invert(0.4);
-  transition: all 0.3s;
-}
-
-.contentContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.content {
+.subTitle {
   margin: 0px;
-  font-size: 14px;
-  filter: invert(0.3);
-}
-
-.dateLabel {
-  font-size: 14px;
-  filter: invert(0.3);
-  margin: 0px;
+  color: #777;
 }
