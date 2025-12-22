@@ -5,9 +5,14 @@ body {
 }
 
 body {
-  display: flex;
   align-items: stretch;
   overflow-y: hidden;
+  background-color: #f6f6f6;
+}
+
+p,
+h1 {
+  margin: 0px;
 }
 
 .titleContainer {
@@ -30,7 +35,7 @@ body {
 }
 
 .titleContent {
-  width: 80%;
+  width: 70%;
   height: 100%;
   opacity: 1;
   margin: 0 auto;
@@ -44,9 +49,100 @@ body {
 .title {
   margin: 0px;
   font-size: 32px;
+  font-weight: bold;
 }
 
 .subTitle {
   margin: 0px;
-  color: #777;
+  color: #000;
+}
+
+.contentContainer {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 32px;
+}
+
+.latestUpdateContainer {
+  height: calc(22rem - 48px);
+  width: 100%;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.leftSide {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rightSide {
+  width: 60%;
+  height: 100%;
+}
+
+.featuredSign {
+  background-color: #025152;
+  width: 28%;
+  height: 28px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featuredLabel {
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.featuredTitle {
+  letter-spacing: 1px;
+}
+
+.featuredInfo {
+  color: #555;
+  letter-spacing: 1px;
+  line-height: 23px;
+}
+
+.publishedDate {
+  color: #555;
+}
+
+.publishedDate span {
+  color: #000;
+}
+
+.readMoreButton {
+  background-color: #025152;
+  border: none;
+  height: 32px;
+  margin-top: 12px;
+  width: 28%;
+  border-radius: 8px;
+  color: #fff;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.readMoreButton:hover {
+  background-color: #cbc74d;
+  color: #000;
+}
+
+.imageContainer {
+  height: 100%;
+  width: 100%;
+  background-image: url(./assets/images/reactors.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 12px;
 }
