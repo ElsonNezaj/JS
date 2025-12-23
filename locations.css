@@ -158,6 +158,12 @@ img.show{
     align-items: center;
     border: none;
     border-radius: 10px;
+    transition: width 0.2s ease-out 0.05s;
+    transition: height 0.2s ease-out 0.05s;
+}
+.card:hover{
+    width: 25.555%;
+    height: 92%;
 }
 .image-container{
     width: 100%;
