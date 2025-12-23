@@ -4,7 +4,7 @@
 }
 
 .landingSection {
-  height: calc(100dvh - 117px);
+  height: calc(100dvh - 104px);
   width: 100%;
   display: flex;
   background-image: url("./assets/images/hero.jpg");
@@ -54,11 +54,50 @@
 }
 
 .subTitleLabel {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   color: #fff;
   align-self: flex-start;
   margin-left: 3rem;
   opacity: 0.8;
+}
+
+.buttonsContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 24px;
+  gap: 12px;
+  padding-left: 15%;
+}
+
+.exploreServicesButton {
+  padding: 1rem 1.5rem;
+  border-radius: 24px;
+  border: none;
+  background-color: #cbc74d;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.exploreServicesButton:hover {
+  background-color: rgb(2, 62, 63);
+  color: #fff;
+}
+
+.genButton {
+  padding: 1rem 1.5rem;
+  border-radius: 24px;
+  border: none;
+  background-color: rgb(256, 256, 256, 0.1);
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s;
+  cursor: pointer;
+  color: #fff;
+  border: solid 2px #fff;
 }
 
 .scrollContainer {
@@ -92,6 +131,47 @@
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.311);
   }
 }
+
+.productInformationSection {
+  height: 55dvh;
+  width: 100%;
+  background-color: #f0f1f1;
+}
+
+.productInfoContent {
+  height: 80%;
+  width: 70%;
+  background-color: #fff;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-shadow: 0px 1px 10px #dedede;
+}
+
+.singleInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerText {
+  font-size: 46px;
+  color: #025152;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.footerText {
+  font-size: 18px;
+  color: #333;
+}
+
+/* OLD STYLES
 
 .infoContainer {
   min-height: 60%;
@@ -300,3 +380,4 @@
   opacity: 0;
   font-weight: bold;
 }
+*/
