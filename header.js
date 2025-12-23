@@ -6,7 +6,7 @@ const navItems = [
     dropdown: [
       {
         text: "Our services and skills",
-        href: "/products-services/services-skills/",
+        href: "/index.html",
       },
       // {
       //   text: "Delivering our Gen-IV vision",
@@ -166,7 +166,7 @@ function createGreenHeader({ desktopState, mobileState }) {
 
   const a = document.createElement("a");
   a.href = "index.html";
-  a.appendChild(logoImg)
+  a.appendChild(logoImg);
 
   logo.appendChild(a);
   navbar.appendChild(logo);
