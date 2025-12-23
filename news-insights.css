@@ -56,9 +56,13 @@ h1 {
   color: #000;
 }
 
-.contentContainer {
+.container {
   width: 70%;
   margin: 0 auto;
+}
+
+.contentContainer {
+  width: 100%;
   padding-top: 32px;
   margin-bottom: 32px;
 }
@@ -72,6 +76,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: 24px;
+  box-sizing: border-box;
 }
 
 .leftSide {
@@ -152,10 +157,10 @@ h1 {
 
 .newsContainer {
   display: flex;
-  width: 70%;
-  margin: 0 auto;
+  width: 100%;
   margin-bottom: 32px;
   gap: 32px;
+  box-sizing: border-box;
 }
 
 .filterContainer {
@@ -234,8 +239,64 @@ h1 {
 
 .allNewsContainer {
   width: 75%;
-  padding: 12px;
   background-color: #fff;
-  padding: 12px;
   border-radius: 12px;
+}
+
+.sectionTitle {
+  padding: 12px;
+}
+
+.news {
+  display: flex;
+  flex-direction: column;
+}
+
+.singleNewsContainer {
+  display: flex;
+  height: 120px;
+  max-height: 120px;
+  gap: 12px;
+  border-bottom: solid 1px #ddd;
+  transition: all 0.3s;
+  cursor: pointer;
+  padding: 12px;
+}
+
+.singleNewsContainer:hover {
+  background-color: #f6f6f6;
+}
+
+.newsImageContainer {
+  width: 30%;
+  height: 100%;
+}
+
+.newsImage {
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.informationContainer {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.newsTitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.content {
+  font-size: 14px;
+  color: #555;
+}
+
+.dateLabel {
+  color: #555;
+  font-size: 12px;
 }
