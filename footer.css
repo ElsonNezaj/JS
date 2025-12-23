@@ -1,7 +1,7 @@
 .footer{
     width: 96%;
     height: 365px;
-    background-color: rgb(78, 145, 116);
+    background-color: rgb(2, 81, 82);
     color: white;
     margin: 0;
     padding-left: 2%;
@@ -191,11 +191,10 @@
     height: 25px;
     border: none;
     border-radius: 20px;
-    background-color: #E0B15C;
+    background-color: rgb(237, 108, 34);
     color: #2B3A33;
     cursor: pointer;
 }
-
 
 
 
