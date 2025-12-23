@@ -3,6 +3,11 @@
   width: 100%;
 }
 
+p,
+h1 {
+  margin: 0px;
+}
+
 .landingSection {
   height: calc(100dvh - 104px);
   width: 100%;
@@ -163,12 +168,110 @@
   font-size: 46px;
   color: #025152;
   font-weight: bold;
-  margin: 0px;
 }
 
 .footerText {
   font-size: 18px;
   color: #333;
+}
+
+.servicesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: center;
+  padding: 24px 0px;
+  background-color: #f8f8f8;
+}
+
+.smallHeaderLabel {
+  color: #025152;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.sectionTitle {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.sectionDescription {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+
+.coreServicesContainer {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+  gap: 36px;
+}
+
+.singleService {
+  background-color: #fff;
+  padding: 18px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  cursor: pointer;
+  border: solid 2px transparent;
+  transition: all 0.3s;
+}
+
+.singleService:hover {
+  border: solid 2px #025152;
+  transform: translateY(-10px);
+}
+
+.serviceIcon {
+  width: 56px;
+  height: 56px;
+  background-color: #025152;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.serviceIcon span {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.serviceTitle {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.serviceDescription {
+  color: #555;
+}
+
+.learnMore {
+  font-size: 14px;
+  color: #025152;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.allServicesButton {
+  padding: 1rem 1.5rem;
+  border-radius: 24px;
+  border: 0px;
+  background-color: #ede73b;
+  letter-spacing: 1px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.allServicesButton:hover {
+  color: #fff;
+  background-color: #025152;
 }
 
 /* OLD STYLES
