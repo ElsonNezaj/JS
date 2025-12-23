@@ -239,8 +239,64 @@ h1 {
 
 .allNewsContainer {
   width: 75%;
-  padding: 12px;
   background-color: #fff;
-  padding: 12px;
   border-radius: 12px;
+}
+
+.sectionTitle {
+  padding: 12px;
+}
+
+.news {
+  display: flex;
+  flex-direction: column;
+}
+
+.singleNewsContainer {
+  display: flex;
+  height: 120px;
+  max-height: 120px;
+  gap: 12px;
+  border-bottom: solid 1px #ddd;
+  transition: all 0.3s;
+  cursor: pointer;
+  padding: 12px;
+}
+
+.singleNewsContainer:hover {
+  background-color: #f6f6f6;
+}
+
+.newsImageContainer {
+  width: 30%;
+  height: 100%;
+}
+
+.newsImage {
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.informationContainer {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.newsTitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.content {
+  font-size: 14px;
+  color: #555;
+}
+
+.dateLabel {
+  color: #555;
+  font-size: 12px;
 }
