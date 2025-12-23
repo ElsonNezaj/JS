@@ -76,8 +76,3 @@ function clearForm(){
     locationSelect.value = 'a';
     dateInput.value = formattedDate;
 }
-
-const locationText = document.getElementById("location-text");
-const txt = ['White Hills Wind', 'Big Cypress Solar', 'Alternative Energy&Services', 'Itaipu Dam', 'Butler Ridge Wind'];
-
-locationText.value = txt[slideIndex];

@@ -1,9 +1,0 @@
-                <a target="_self" href="https://www.google.com/maps/place/White+Hills+Wind+Farm/data=!4m2!3m1!1s0x0:0xd7a9a1a390e2ff03?sa=X&ved=1t:2428&ictx=111">
-                    <img src="./assets/images/windFarmArizona.jpg" alt="wind farm"/>
-                </a>
-                <a target="_blank" href="https://www.google.com/maps/place/Big+Cypress+Solar/data=!4m2!3m1!1s0x0:0xf0f2ca63dee7cb5b?sa=X&ved=1t:2428&ictx=111">
-                    <img src="./assets/images/solarFarmArkansas.jpg" alt="solar farm 1"/>
-                </a>
-                <a target="_blank" href="https://www.google.com/maps/place/Alternative+Energy+Services+Inc/@28.5249633,-80.8194618,17z/data=!3m1!4b1!4m6!3m5!1s0x88e7721cb743c65d:0x2b59562bb4188a35!8m2!3d28.5249633!4d-80.8168869!16s%2Fg%2F1vn_zslz?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">
-                    <img src="./assets/images/solarFarmColorado.jpg" alt="solar farm 2"/> 
-                </a>
