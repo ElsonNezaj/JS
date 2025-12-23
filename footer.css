@@ -226,5 +226,7 @@
     width: auto;
     cursor: pointer;
 }
-
+ul{
+    margin: 0;
+}
 
