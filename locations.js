@@ -35,3 +35,7 @@ function nextSlide(){
     slideIndex++;
     showSlide(slideIndex);
 }
+
+function stopTimer(){
+    clearInterval(intervalId);
+}
