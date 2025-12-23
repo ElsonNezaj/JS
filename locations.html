@@ -39,6 +39,21 @@
             </div>
             <button class="prev" onclick="prevSlide()">&#8592;</button>
             <button class="next" onclick="nextSlide()">&#8594;</button>
+
+            <h2>White Hills Wind</h2>
+            <h2>Big Cypress Solar</h2>     
+            <h2>Alternative Energy&Services</h2>
+            <h2 >Itaipu Dam</h2>
+            <h2>Butler Ridge Wind</h2>
+
+            <h4>Arizona Wind Farm</h4>
+            <h4>Arkansas Solar Farm</h4>
+            <h4>Colorado Solar Farm</h4>
+            <h4>Paraguay Hydro Plant</h4>
+            <h4>Wisconsin Wind Farm</h4>
+
+            <h1>Our Renewable Energy Locations</h1>
+            <h3>Powering Communities With Clean Energy Worldwide</h3>
         </div>
         <div class="locations-container">
             <div class="divider-div">
@@ -141,6 +156,41 @@
                     <div class="info-div">
                         <h2>10+</h2>
                         <p>Locations Worldwide</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="end-container">
+            <div class="form-container">
+                <div class="form">
+                    <h1>Book an Appointment</h1>
+                    <div class="contact-row">
+                        <input  id="name-input" type="text" placeholder="Full Name">
+                        <input id="email-input" type="email" placeholder="Email"> 
+                    </div>
+                    <div class="contact-row">
+                        <select id="location">
+                            <option value="a">Select Location</option>
+                            <option value="b">Arkansas</option>
+                            <option value="c">Arizona</option>
+                            <option value="d">Colorado</option>
+                            <option value="e">Wisconsin</option>
+                            <option value="f">Paraguay</option>
+                        </select>
+                    </div>
+                    <div class="contact-row">
+                        <select id="appointment-type">
+                            <option value="a">Appointment Type</option>
+                            <option value="b">Commercial</option>
+                            <option value="c">Personal</option>
+                        </select>
+                        <input type="date" id="date-picker">
+                    </div>
+                    <div class="contact-row">
+                        <input type="text" id="message" placeholder="Message">
+                    </div>
+                    <div class="button-row">
+                        <button id="submit-btn" onclick="clearForm()">Schedule Appointment</button>
                     </div>
                 </div>
             </div>

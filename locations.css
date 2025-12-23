@@ -13,16 +13,49 @@ body{
     justify-content: center;
     position: relative;
 }
+.location-slider h1, .location-slider h3, .location-slider h2, .location-slider h4{
+    position: absolute;
+    color: white;
+}
+.location-slider h1{
+    top: 15%;
+    font-size: 55px;
+    text-shadow: 1px 1px 8px #f6f6f6;
+}
+.location-slider h3{
+    top: 25%;
+    font-size: 25px;
+}
+.location-slider h2{
+    font-size: 35px;
+    top: 65%;
+    text-shadow: 3px 3px 13px black;
+    display: none;
+}
+h2.show{
+    display: block;
+}
+
+.location-slider h4{
+    font-size: 20px;
+    top: 75%;
+    text-shadow: 3px 3px 13px black;
+    display: none;
+}
+h4.show{
+    display: block;
+}
 
 .slides img{
     width: 100%;
+    opacity: 0.9;
     height: auto;
     position: relative;
     display: none;
 }
 
 .slides img:hover{
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 img.show{
@@ -245,4 +278,90 @@ img.show{
 .photo img{
     height: 80px;
     width: auto;
+}
+
+.end-container{
+    width: 100%;
+    height: 740px;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form-container{
+    width: 80%;
+    height: 100%;
+    background-color: rgb(241, 241, 241);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    width: 65%;
+    height: 90%;
+    background-color: rgb(246, 246, 246);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 4px 2px 7px rgba(0, 0, 0, 0.2);
+}
+.form h1{
+    color: rgb(2, 81, 82);
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.contact-row{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.contact-row input{
+    height: 50px;
+    width: 48.5%;
+    font-size: 25px;
+    border: 2px solid rgb(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 25px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.contact-row select{
+    height: 50px;
+    width: 100%;
+    font-size: 25px;
+    border: 2px solid rgb(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 25px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+#appointment-type{
+    width: 49.5%;
+}
+#message{
+    width: 100%;
+    height: 120px;
+    margin-bottom: 40px;
+}
+.button-row{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+.button-row button{
+    width: 40%;
+    height: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    background-color: rgb(2, 81, 82);
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
+.button-row button:hover{
+    background-color:  rgb(2, 81, 82, 0.75);
 }
