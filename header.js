@@ -18,7 +18,7 @@ const navItems = [
     text: "OUR TECHNOLOGY",
     href: "/our-technology/",
     dropdown: [
-      { text: "Reactors & Fuels", href: "/our-technology/reactors-fuels" },
+      { text: "Reactors & Fuels", href: "reactors-fuels.html" },
     ],
   },
   {
