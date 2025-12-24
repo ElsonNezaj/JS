@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(
+      rgba(0,0,0,0.6),
+      rgba(0,0,0,0.6)
+    ),
+    url("./assets/images/solar.jpg") center / cover no-repeat;
+  padding: 100px 40px;
+  text-align: center;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #2ecc71;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
+/* CONTENT */
+.content {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* INFO CARD */
+.info-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+}
+
+/* WOW EFFECT */
+.info-card.active {
+  transform: scale(1.05);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+
+/* TEXT */
+.info-card h2 {
+  color: #2ecc71;
+  margin-bottom: 10px;
+}
+
+.short {
+  margin-bottom: 15px;
+}
+
+/* MORE BUTTON */
+.more-btn {
+  background: none;
+  border: none;
+  color: #2ecc71;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: transform 0.3s;
+}
+
+/* ROTATE ICON */
+.info-card.active .more-btn {
+  transform: rotate(180deg);
+}
+
+/* HIDDEN CONTENT */
+.more-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.info-card.active .more-content {
+  max-height: 200px;
+}
+
+/* TESTIMONIAL */
+.testimonial {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  text-align: center;
+  padding: 70px 30px;
+  margin-top: 80px;
+}
+
+.quote {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.author {
+  display: block;
+  margin-top: 20px;
+  color: #2ecc71;
+  font-weight: 600;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+}
