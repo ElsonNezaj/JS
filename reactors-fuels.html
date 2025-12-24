@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <title>newCleo</title>
+    <link rel="stylesheet" href="reactors-fuels.css">
+    <script type="module">
+            import { initializeHeader, createDesktopNavigation } from "./header.js";
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const header = initializeHeader();
+                document.body.insertBefore(header, document.body.firstChild);
+
+                createDesktopNavigation({ desktopState: window.headerState });
+            });
+        </script>
+        <link rel="stylesheet" href="./footer.css" />
+        <script src="footer.js" defer></script>
+</head>
+<body>
+
+<!-- SEKSIONI 1 -->
+<section class="top-section">
+  <div class="left-box">
+    <div class="reactor-graphic">
+      <h3>Advanced Reactor Technology</h3>
+      <p>Reliable, clean, and safe energy powering the future.</p>
+    </div>
+  </div>
+  <div class="right-box">
+<h2><b>Our Reactors</b></h2>
+    <p>Our reactors use advanced technology to produce clean and safe energy. Continuous monitoring ensures high efficiency and minimal environmental impact. They provide reliable power for our communities.</p>
+  </div>
+</section>
+
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Clean Energy for a Sustainable Future</h1>
+    <p>Discover how modern technology powers a sustainable future</p>
+    <a href="learn-more.html" class="btn">LEARN MORE</a>
+</div>
+
+<!-- CARDS -->
+<div class="cards">
+    <div class="card">
+        <h3>💧 HYDRO</h3>
+        <p>clean energy from flowing water.</p>
+    </div>
+    <div class="card">
+        <h3>💨 WIND</h3>
+        <p>energy from wind turbines</p>
+    </div>
+    <div class="card">
+        <h3>☀️ SOLAR</h3>
+        <p>sunlight converted into electricity</p>
+    </div>
+    <div class="card">
+        <h3>⚡ NUCLEAR</h3>
+        <p>reactors producing clean energy</p>
+    </div>
+</div>
+
+<!-- FUELS -->
+<section class="fuels-section">
+    <h2>FUELS</h2>
+
+    <div class="fuels-container">
+        <div class="fuels-image">
+            <img src="./assets/images/solar.jpg" alt="Energy Panel">
+        </div>
+        <div class="fuels-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hydro</th>
+                        <th>Wind</th>
+                        <th>Solar</th>
+                        <th>Nuclear</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Clean energy generated from flowing water.</td>
+                        <td>Electricity produced using wind turbines.</td>
+                        <td>Power created from sunlight using panels.</td>
+                        <td>High-output energy from nuclear reactors.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+    <p class="quote">“Clean energy that changed our future.”</p>
+    <div class="author">
+        <span class="name">Energy Corp</span>
+        <span class="role">Renewable Partner</span>
+    </div>
+</section>
+
+</body>
+</html>
+
+

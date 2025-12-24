@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learn More | Clean Energy</title>
+  <link rel="stylesheet" href="learn-more.css">
+</head>
+<body>
+  <section class="hero">
+    <h1>Our Clean Energy Solutions</h1>
+    <p>Swipe or click to explore more details</p>
+    <a href="reactors-fuels.html" class="back-btn">← Back to Home</a>
+  </section>
+
+  <section class="content">
+    <!-- CARD 1 -->
+    <div class="info-card">
+      <h2>☀️ Solar Energy</h2>
+      <p class="short">
+        Solar panels convert sunlight into electricity.
+      </p>
+      <button class="more-btn">Swipe for more ⌄</button>
+      <div class="more-content">
+        <p>
+          Solar energy is one of the most sustainable energy sources.
+          It reduces carbon emissions, lowers electricity bills and
+          can be installed on rooftops or large solar farms worldwide.
+        </p>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="info-card">
+      <h2>💨 Wind Energy</h2>
+      <p class="short">
+        Wind turbines harness wind power to generate electricity.
+      </p>
+      <button class="more-btn">Swipe for more ⌄</button>
+      <div class="more-content">
+        <p>
+          Wind energy is clean, renewable and cost-efficient.
+          Modern wind farms supply power to millions of homes
+          with minimal environmental impact.
+        </p>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="info-card">
+      <h2>💧 Hydro Energy</h2>
+      <p class="short">
+        Hydropower generates electricity using flowing water.
+      </p>
+      <button class="more-btn">Swipe for more ⌄</button>
+      <div class="more-content">
+        <p>
+          Hydropower provides stable and reliable energy.
+          It plays a key role in balancing renewable energy grids
+          and reducing dependence on fossil fuels.
+        </p>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="info-card">
+      <h2>⚛️ Nuclear Energy</h2>
+      <p class="short">
+        Nuclear reactors generate high output energy.
+      </p>
+      <button class="more-btn">Swipe for more ⌄</button>
+      <div class="more-content">
+        <p>
+          Nuclear energy offers low carbon emissions and
+          consistent power generation, supporting global
+          energy demand with advanced safety technologies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial">
+    <p class="quote">“Clean energy that changed our future.”</p>
+    <span class="author">— Energy Corp</span>
+  </section>
+  <footer>
+    <p>© 2025 Clean Energy Project</p>
+  </footer>
+  <!-- JAVASCRIPT -->
+  <script>
+    const cards = document.querySelectorAll(".info-card");
+
+    cards.forEach(card => {
+      const btn = card.querySelector(".more-btn");
+
+      btn.addEventListener("click", () => {
+        card.classList.toggle("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
