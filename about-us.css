@@ -49,6 +49,7 @@ body{
     box-shadow: 3px 3px 10px black;
     position: absolute;
     top: 48%;
+    transform: translateX(-50%);
 }
 
 .hero-content-container button:hover{
