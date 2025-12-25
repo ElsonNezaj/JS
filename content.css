@@ -103,6 +103,13 @@ h1 {
   cursor: pointer;
   color: #fff;
   border: solid 2px #fff;
+  transition: all 0.3s;
+}
+
+.genButton:hover {
+  background-color: #fff;
+  color: #025152;
+  font-weight: bold;
 }
 
 .scrollContainer {
@@ -374,213 +381,67 @@ h1 {
   transform: translateY(-7px);
 }
 
-/* OLD STYLES
-
-.infoContainer {
-  min-height: 60%;
+.ctaContainer {
+  height: 50dvh;
   width: 100%;
-  min-width: calc(100vw - 15px);
-  display: flex;
-  flex-direction: row-reverse;
-  background-image: url("./assets/images/products_services.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-}
-
-.labelsRight {
-  width: 50%;
-  background-color: rgba(2, 81, 82, 0.5);
-}
-
-.mainLabel {
-  color: #fff;
-  margin-left: 25px;
-  font-size: 46px;
-}
-
-.mainLabel span {
-  color: #cbc74d;
-}
-
-.labelsRight p {
-  color: #fff;
-  padding: 0px 25px;
-  font-size: 18px;
-  letter-spacing: 1.5px;
-}
-
-.productsAndServicesContainer {
-  height: 75%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.contentTitle {
-  color: #025152;
-  font-weight: bold;
-  text-align: center;
-  width: 100%;
-}
-
-.cardsContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 48px;
-  padding-bottom: 42px;
-  padding-top: 12px;
-}
-
-.cardContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  width: 22%;
-  border-radius: 24px;
-  box-shadow: 0px 0px 5px 5px #00000021;
-  position: relative;
-}
-
-#popular {
-  position: relative;
-}
-
-#popular::after {
-  content: "Popular";
-  position: absolute;
-  right: -10%;
-  top: -2.5%;
-  background-color: #025152;
-  padding: 12px;
-  border-radius: 42px;
-  border: solid 1px #023e3f;
-  color: #fff;
-}
-
-.iconContainer {
+  background-image: linear-gradient(130deg, #00a896, 40%, #004d4d);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #025152;
-  border-radius: 100%;
-  padding: 12px;
-  margin-top: 24px;
-  user-select: none;
-}
-
-.img {
-  width: 120px;
-  height: 120px;
-  filter: invert(1);
-}
-
-.cardTitle {
-  background-color: #025152;
-  text-align: center;
-  color: #fff;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  width: 100%;
-  font-size: 28px;
-}
-
-.serviceList {
-  display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin-left: 6px;
-  margin-right: 12px;
+  gap: 32px;
 }
 
-.listItem {
-  list-style: decimal-leading-zero;
-  color: #025152;
-  font-weight: bold;
+.ctaHeader {
+  color: #fff;
+  font-size: 42px;
 }
 
-.listItem span {
-  color: #000;
-  font-weight: normal;
-  word-spacing: 5px;
+.ctaLabel {
+  color: #eee;
+  font-size: 20px;
+  letter-spacing: 2px;
 }
 
-.button {
-  display: block;
+.ctaButtonsContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contactUs {
+  background-color: #cbc74d;
   border: none;
-  background-color: #025152;
-  color: #fff;
-  height: 7%;
+  padding: 16px 32px;
   border-radius: 42px;
   font-size: 16px;
-  transition: width 0.3s, border-radius 0.3s;
-  cursor: pointer;
-  padding: 12px;
-  justify-self: flex-end;
-  margin-bottom: 24px;
-}
-
-.button:hover {
-  width: 100%;
-  border-radius: 0px;
-  height: 15%;
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
-  margin-bottom: 0px;
-}
-
-.moreContainer {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.buttonContainer {
-  height: 72px;
-  width: 72px;
-  background-color: #025152;
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
   transition: all 0.3s;
-  position: relative;
-}
-
-.buttonContainer:hover {
-  background-color: #cbc74d;
-  width: 120px;
-  border-radius: 24px;
-}
-
-.buttonContainer:hover .rightArrow {
-  filter: invert(0);
-  opacity: 0;
-  display: none;
-}
-
-.buttonContainer:hover .label {
-  opacity: 1;
-  visibility: visible;
-  transition-delay: 0.3s;
-}
-
-.rightArrow {
-  filter: invert(1);
-  width: 36px;
-  transition: all 0.3s;
-  display: block;
-  opacity: 1;
-  position: absolute;
-}
-
-.label {
-  visibility: hidden;
-  opacity: 0;
+  cursor: pointer;
+  border: solid 2px transparent;
   font-weight: bold;
 }
-*/
+
+.contactUs:hover {
+  background-color: #025152;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.makeAnAppointment {
+  background-color: transparent;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 42px;
+  font-size: 16px;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: solid 2px white;
+  font-weight: bold;
+  color: white;
+}
+
+.makeAnAppointment:hover {
+  background-color: white;
+  color: #025152;
+  letter-spacing: 2px;
+}
