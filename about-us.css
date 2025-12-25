@@ -187,6 +187,7 @@ body{
     flex-direction: column;
     align-items: center;
     transition: border 0.2s ease-out 0.2s ease-in 0.2;
+    overflow: hidden;
 }
 
 .card h2{

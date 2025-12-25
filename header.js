@@ -129,8 +129,8 @@ function createBlackHeader() {
   container.className = "blackcontainer";
 
   const items = [
-    { href: "/about-us/newcleo-group/", text: "newcleo Group" },
-    { href: "/press-media/", text: "Press and media" },
+    { href: "about-us.html", text: "newcleo Group" },
+    { href: "news-insights.html", text: "Press and media" },
     { href: "/supply-chain/", text: "Supply Chain" },
     { href: "https://www.newcleo.com/investors/", text: "Investors" },
     { href: "/contact-us/", text: "Contact us" },
