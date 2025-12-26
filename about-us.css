@@ -2,6 +2,11 @@ body{
     background-color: #f6f6f6;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 .hero-container{
     width: 100%;
     height: 880px;
@@ -86,6 +91,11 @@ body{
     align-items: center;
     align-self: center;
 }
+
+#mission {
+  scroll-margin-top: 144px;
+}
+
 
 .img-container{
     margin-top: 20px;
