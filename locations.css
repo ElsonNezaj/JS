@@ -210,6 +210,10 @@ img.show{
 .card button:hover{
     background-color: rgb(2, 81, 82, 0.75);
 }
+#form {
+  scroll-margin-top: 134px;
+}
+
 
 
 .info-band{
