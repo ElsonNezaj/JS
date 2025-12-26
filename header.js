@@ -21,7 +21,7 @@ const navItems = [
   },
   {
     text: "ABOUT US",
-    href: "/about-us/",
+    href: "about-us.html",
     dropdown: [
       { text: "<i>new</i>cleo Group", href: "about-us.html" },
       { text: "Locations", href: "locations.html" },
