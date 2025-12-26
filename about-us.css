@@ -1,13 +1,12 @@
-body{
+body {
     background-color: #f6f6f6;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
-
-.hero-container{
+.hero-container {
     width: 100%;
     height: 880px;
     overflow: hidden;
@@ -16,14 +15,14 @@ html {
     margin-bottom: 40px;
 }
 
-.hero-container img{
+.hero-container img {
     width: 100%;
     height: auto;
     align-self: center;
     justify-self: center;
 }
 
-.hero-content-container{
+.hero-content-container {
     width: 40%;
     height: 880px;
     right: 0;
@@ -35,14 +34,14 @@ html {
     position: absolute;
 }
 
-.hero-content-container h1, 
-.hero-content-container h3{
+.hero-content-container h1,
+.hero-content-container h3 {
     color: white;
     text-shadow: 2px 2px 8px black;
     position: absolute;
 }
 
-.hero-content-container button{
+.hero-content-container button {
     width: 35%;
     height: 45px;
     cursor: pointer;
@@ -57,20 +56,21 @@ html {
     transform: translateX(-50%);
 }
 
-.hero-content-container button:hover{
+.hero-content-container button:hover {
     background-color: rgb(2, 81, 82, 0.75);
 }
 
-.hero-content-container h1{
+.hero-content-container h1 {
     font-size: 80px;
     top: 20%;
 }
-.hero-content-container h3{
+
+.hero-content-container h3 {
     font-size: 30px;
     top: 36%;
 }
 
-.mission-container{
+.mission-container {
     width: 95%;
     margin-top: 100px;
     margin-bottom: 100px;
@@ -83,7 +83,8 @@ html {
     justify-content: center;
 }
 
-.mission-description, .mission-img{
+.mission-description,
+.mission-img {
     width: 50%;
     height: 100%;
     display: flex;
@@ -93,11 +94,10 @@ html {
 }
 
 #mission {
-  scroll-margin-top: 144px;
+    scroll-margin-top: 144px;
 }
 
-
-.img-container{
+.img-container {
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
@@ -109,7 +109,7 @@ html {
     align-self: center;
 }
 
-.img-container img{
+.img-container img {
     height: 100%;
     width: auto;
     justify-self: center;
@@ -117,12 +117,12 @@ html {
     transition: height 0.3s ease-out 0.2s;
 }
 
-.img-container img:hover{
+.img-container img:hover {
     height: 102%;
     width: auto;
 }
 
-.divider-div{
+.divider-div {
     width: 85%;
     height: 5%;
     margin-bottom: 30px;
@@ -135,29 +135,32 @@ html {
     justify-content: center;
     margin-top: 80px;
 }
+
 .divider-div::before,
-.divider-div::after{
+.divider-div::after {
     content: "";
     flex: 1;
     height: 1px;
     background: rgb(2, 81, 82);
 }
-.divider-div span{
+
+.divider-div span {
     padding: 0, 12px;
     white-space: nowrap;
 }
 
-.desc{
+.desc {
     margin-top: 30px;
     width: 70%;
 }
-.desc p{
+
+.desc p {
     align-self: center;
     font-size: 20px;
     color: rgb(2, 81, 82);
 }
 
-.impact-container{
+.impact-container {
     width: 95%;
     margin-top: 100px;
     margin-bottom: 100px;
@@ -171,14 +174,15 @@ html {
     align-items: center;
 }
 
-.card-container, .reviewCard-container{
+.card-container,
+.reviewCard-container {
     align-self: center;
     justify-self: center;
     width: 90%;
     height: 390px;
     margin-bottom: 35px;
     margin-top: 20px;
-    background-color:  rgb(238, 238, 238);
+    background-color: rgb(238, 238, 238);
     border-radius: 15px;
     padding: 20px 40px;
     display: flex;
@@ -186,7 +190,7 @@ html {
     justify-content: space-between;
 }
 
-.card{
+.card {
     flex: 1;
     margin: 20px;
     height: 240px;
@@ -203,28 +207,28 @@ html {
     z-index: 10;
 }
 
-.card.active{
+.card.active {
     height: 500px;
 }
 
-.card span{
+.card span {
     display: none;
 }
 
-.card span.show{
+.card span.show {
     display: block;
 }
 
-.card h2{
+.card h2 {
     color: rgb(2, 81, 82);
 }
 
-.card p{
+.card p {
     color: rgba(0, 0, 0, 0.6);
     margin: 25px;
 }
 
-.learn-more{
+.learn-more {
     color: rgb(2, 81, 82);
     text-decoration: underline;
     align-self: flex-end;
@@ -232,20 +236,21 @@ html {
     cursor: pointer;
 }
 
-.learn-more:hover{
+.learn-more:hover {
     color: rgb(2, 81, 82, 0.85);
 }
 
-.card:hover, .reviewCard:hover{
+.card:hover,
+.reviewCard:hover {
     border: 1px solid rgba(0, 0, 0, 0.4);
 }
 
-.info-band{
+.info-band {
     width: 100%;
     height: 150px;
     background-color: rgb(232, 232, 232);
     border-top: 1px solid rgb(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgb(0, 0, 0, 0.1);    
+    border-bottom: 1px solid rgb(0, 0, 0, 0.1);
     margin-top: 0px;
     margin-bottom: 30px;
     display: flex;
@@ -254,7 +259,9 @@ html {
     justify-content: center;
     overflow: hidden;
 }
-.energy-produced, .co2-saved{
+
+.energy-produced,
+.co2-saved {
     width: 40%;
     height: 100%;
     flex: 1.5;
@@ -263,7 +270,8 @@ html {
     justify-content: center;
     align-items: center;
 }
-.production-info{
+
+.production-info {
     align-self: flex-end;
     margin-right: 50px;
     display: flex;
@@ -271,17 +279,20 @@ html {
     justify-content: center;
     align-items: center;
 }
-.info-band h2{
+
+.info-band h2 {
     color: rgb(2, 81, 82);
     align-self: flex-end;
     font-size: 30px;
     margin-bottom: 0;
 }
-.info-band p{
+
+.info-band p {
     margin-top: 0;
     color: rgb(0, 0, 0, 0.5);
 }
-.operations{
+
+.operations {
     width: 30%;
     height: 100%;
     flex: 1;
@@ -291,16 +302,21 @@ html {
     justify-content: center;
     align-items: center;
 }
-.operations:hover, .co2-saved:hover, .energy-produced:hover{
+
+.operations:hover,
+.co2-saved:hover,
+.energy-produced:hover {
     background-color: rgb(235, 235, 235);
 }
-.operations-info{
+
+.operations-info {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-.co2-info{
+
+.co2-info {
     align-self: flex-start;
     margin-left: 50px;
     display: flex;
@@ -309,14 +325,14 @@ html {
     justify-content: center;
 }
 
-.moto{
+.moto {
     align-self: center;
     color: rgb(0, 0, 0, 0.5);
     margin-top: 30px;
     margin-right: 20px;
 }
 
-.location-btn{
+.location-btn {
     background-color: rgb(2, 81, 82);
     color: white;
     font-size: 20px;
@@ -332,7 +348,7 @@ html {
     box-shadow: 1px 1px 7px rgb(0, 0, 0);
 }
 
-.reviews{
+.reviews {
     align-self: center;
     justify-self: center;
     background-color: rgb(241, 241, 241);
@@ -344,7 +360,7 @@ html {
     align-items: center;
 }
 
-.reviewCard{
+.reviewCard {
     height: 100%;
     width: 24%;
     background-color: rgb(241, 241, 241);
@@ -355,17 +371,18 @@ html {
     align-items: center;
 }
 
-.reviewCard h3{
-    margin-top: 20px;margin-bottom: 0;
+.reviewCard h3 {
+    margin-top: 20px;
+    margin-bottom: 0;
     color: rgb(2, 81, 82);
 }
 
-.reviewCard p{
+.reviewCard p {
     color: rgba(0, 0, 0, 0.6);
     margin: 25px;
 }
 
-.contactContainer{
+.contactContainer {
     width: 100%;
     height: 200px;
     background-color: rgb(232, 232, 232);
@@ -374,7 +391,7 @@ html {
     align-items: center;
 }
 
-.contactInfoContainer{
+.contactInfoContainer {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -382,12 +399,12 @@ html {
     align-items: center;
 }
 
-.contactInfoContainer h4{
+.contactInfoContainer h4 {
     color: rgb(0, 0, 0, 0.5);
     margin-right: 20px;
 }
 
-.contactInfoContainer button{
+.contactInfoContainer button {
     background-color: rgb(2, 81, 82);
     color: white;
     font-size: 18px;
@@ -399,6 +416,6 @@ html {
     cursor: pointer;
 }
 
-.contactInfoContainer button:hover{
+.contactInfoContainer button:hover {
     background-color: rgb(2, 81, 82, 0.85);
 }
