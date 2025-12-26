@@ -6,7 +6,7 @@ const navItems = [
     dropdown: [
       {
         text: "Our services and skills",
-        href: "/index.html",
+        href: "index.html",
       },
       // {
       //   text: "Delivering our Gen-IV vision",
@@ -17,9 +17,7 @@ const navItems = [
   {
     text: "OUR TECHNOLOGY",
     href: "/our-technology/",
-    dropdown: [
-      { text: "Reactors & Fuels", href: "reactors-fuels.html" },
-    ],
+    dropdown: [{ text: "Reactors & Fuels", href: "reactors-fuels.html" }],
   },
   {
     text: "ABOUT US",
