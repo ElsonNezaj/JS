@@ -179,7 +179,7 @@ body{
 .card{
     flex: 1;
     margin: 20px;
-    height: 340px;
+    height: 240px;
     background-color: rgb(241, 241, 241);
     border-radius: 10px;
     box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.4);
@@ -188,6 +188,21 @@ body{
     align-items: center;
     transition: border 0.2s ease-out 0.2s ease-in 0.2;
     overflow: hidden;
+    padding: 25px;
+    position: relative;
+    z-index: 10;
+}
+
+.card.active{
+    height: 500px;
+}
+
+.card span{
+    display: none;
+}
+
+.card span.show{
+    display: block;
 }
 
 .card h2{
@@ -202,9 +217,8 @@ body{
 .learn-more{
     color: rgb(2, 81, 82);
     text-decoration: underline;
-    margin-right: 40px;
-    margin-bottom: 30px;
     align-self: flex-end;
+    margin: 0;
     cursor: pointer;
 }
 

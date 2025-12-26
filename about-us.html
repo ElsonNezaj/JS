@@ -60,40 +60,43 @@
                     <h2>Solar Energy</h2>
                     <p>
                         We harness the power of the sun to deliver clean, 
-                        dependable energy solutions that reduce costs and environmental impact. 
+                        dependable energy solutions that reduce costs and environmental impact.<span>
                         Our solar systems are designed for performance, durability, and long-term value—helping homes, 
                         businesses, and communities generate their own power with confidence. 
                         From intelligent system design to seamless installation and ongoing support, 
                         we make solar energy a smart, sustainable investment in a cleaner future.
+                        </span>
                     </p>
-                    <h3 class="learn-more">-Learn More</h3>                    
+                    <h3 class="learn-more" onclick="showMore(this)">-Learn More</h3>                    
                 </div>
 
                 <div class="card">
                     <h2>Wind Energy</h2>
                     <p>
                         We transform the natural power of the wind into reliable, 
-                        renewable electricity that supports a cleaner and more resilient energy system. 
+                        renewable electricity that supports a cleaner and more resilient energy system. <span>
                         Our wind solutions are engineered for efficiency, scalability, and long-term performance, 
                         delivering consistent power while minimizing environmental impact. 
                         By combining advanced technology with responsible site development, 
                         we help communities benefit from sustainable energy that 
                         strengthens the grid and reduces dependence on fossil fuels.
+                        </span>
                     </p>
-                    <h3 class="learn-more">-Learn More</h3>                    
+                    <h3 class="learn-more" onclick="showMore(this)">-Learn More</h3>                    
                 </div>
                 <div class="card">
                     <h2>Hydroelectric</h2>
                     <p>
                         We leverage the continuous flow of water to generate clean, 
-                        dependable energy that supports long-term sustainability. 
+                        dependable energy that supports long-term sustainability. <span>
                         Our hydroelectric solutions are designed to deliver efficient, 
                         low-impact power while respecting local ecosystems and water resources. 
                         Through modern technology and responsible project development, 
                         we provide reliable renewable energy that strengthens energy security, 
                         supports communities, and contributes to a balanced, resilient power grid.
+                        </span>
                     </p>
-                    <h3 class="learn-more">-Learn More</h3>
+                    <h3 class="learn-more" onclick="showMore(this)">-Learn More</h3>
                 </div>
             </div>
 
@@ -159,5 +162,16 @@
                 <button>Contact Us</button>
             </div>
         </div>
+
+        <script>
+            function showMore(el){
+                const parentDiv = el.closest(".card");
+                const textToShow = parentDiv.querySelector("span");
+
+                parentDiv.classList.toggle('active');
+                textToShow.classList.toggle('show');
+                el.textContent == "Show Less" ? el.textContent = "-Learn More" : el.textContent = "Show Less";
+            }
+        </script>
     </body>
 </html>
