@@ -1,433 +1,431 @@
 body {
-    background-color: #f6f6f6;
+  background-color: #f6f6f6;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-
-
 .location-slider {
-    width: 100%;
-    height: 880px;
-    margin-bottom: 40px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+  width: 100%;
+  height: 880px;
+  margin-bottom: 40px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .location-slider h1,
 .location-slider h3,
 .location-slider h2,
 .location-slider h4 {
-    position: absolute;
-    color: white;
+  position: absolute;
+  color: white;
 }
 
 .location-slider h1 {
-    top: 15%;
-    font-size: 55px;
-    text-shadow: 1px 1px 8px #f6f6f6;
+  top: 15%;
+  font-size: 55px;
+  text-shadow: 1px 1px 8px #f6f6f6;
 }
 
 .location-slider h3 {
-    top: 25%;
-    font-size: 25px;
+  top: 25%;
+  font-size: 25px;
 }
 
 .location-slider h2 {
-    font-size: 35px;
-    top: 65%;
-    text-shadow: 3px 3px 13px black;
-    display: none;
+  font-size: 35px;
+  top: 65%;
+  text-shadow: 3px 3px 13px black;
+  display: none;
 }
 
 h2.show {
-    display: block;
+  display: block;
 }
 
 .location-slider h4 {
-    font-size: 20px;
-    top: 75%;
-    text-shadow: 3px 3px 13px black;
-    display: none;
+  font-size: 20px;
+  top: 75%;
+  text-shadow: 3px 3px 13px black;
+  display: none;
 }
 
 h4.show {
-    display: block;
+  display: block;
 }
 
 .slides img {
-    width: 100%;
-    opacity: 0.9;
-    height: auto;
-    position: relative;
-    display: none;
+  width: 100%;
+  opacity: 0.9;
+  height: auto;
+  position: relative;
+  display: none;
 }
 
 .slides img:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 img.show {
-    display: block;
-    animation-name: fade;
-    animation-duration: 1.5s;
+  display: block;
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
 .location-slider button {
-    position: absolute;
-    bottom: 0;
-    font-size: 2rem;
-    background-color: rgb(2, 81, 82, 0.5);
-    color: white;
-    border: none;
-    cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  font-size: 2rem;
+  background-color: rgb(2, 81, 82, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 .location-slider button:hover {
-    background-color: rgb(2, 81, 82, 0.85);
+  background-color: rgb(2, 81, 82, 0.85);
 }
 
 .prev {
-    right: 50.5%;
+  right: 50.5%;
 }
 
 .next {
-    left: 50.5%;
+  left: 50.5%;
 }
 
 @keyframes fade {
-    from {
-        opacity: 0.5;
-    }
+  from {
+    opacity: 0.5;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 .appointment-container button:hover {
-    background-color: rgba(2, 81, 82, 0.833);
+  background-color: rgba(2, 81, 82, 0.833);
 }
 
 .locations-container {
-    width: 100%;
-    height: 940px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  height: 940px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .divider-div {
-    width: 80%;
-    height: 5%;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    display: flex;
-    color: rgb(2, 81, 82);
-    font-weight: 600;
-    font-size: 20px;
-    align-items: center;
-    justify-content: center;
+  width: 80%;
+  height: 5%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  display: flex;
+  color: rgb(2, 81, 82);
+  font-weight: 600;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
 .divider-div::before,
 .divider-div::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: rgb(2, 81, 82);
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgb(2, 81, 82);
 }
 
 .divider-div span {
-    padding: 0 12px;
-    white-space: nowrap;
+  padding: 0 12px;
+  white-space: nowrap;
 }
 
 .card-container {
-    width: 80%;
-    height: 100%;
-    background-color: rgb(241, 241, 241);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 80%;
+  height: 100%;
+  background-color: rgb(241, 241, 241);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .row {
-    height: 50%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .card {
-    width: 25%;
-    margin-right: 2.5%;
-    margin-left: 2.5%;
-    margin-top: 3.5%;
-    margin-bottom: 3.5%;
-    height: 90%;
-    background-color: rgb(238, 238, 238);
-    box-shadow: 4px 2px 7px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: none;
-    border-radius: 10px;
-    transition: width 0.2s ease-out 0.05s;
-    transition: height 0.2s ease-out 0.05s;
+  width: 25%;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+  margin-top: 3.5%;
+  margin-bottom: 3.5%;
+  height: 90%;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 4px 2px 7px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  transition: width 0.2s ease-out 0.05s;
+  transition: height 0.2s ease-out 0.05s;
 }
 
 .card:hover {
-    width: 25.555%;
-    height: 92%;
+  width: 25.555%;
+  height: 92%;
 }
 
 .image-container {
-    width: 100%;
-    height: 60%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px 10px 0 0;
+  width: 100%;
+  height: 60%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px 10px 0 0;
 }
 
 .image-container img {
-    width: 100%;
-    height: auto;
-    position: relative;
+  width: 100%;
+  height: auto;
+  position: relative;
 }
 
 .info {
-    width: 80%;
-    padding-left: 5px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 80%;
+  padding-left: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .info h3 {
-    color: rgb(2, 81, 82);
+  color: rgb(2, 81, 82);
 }
 
 .info p {
-    color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .card button {
-    width: 100px;
-    height: 35px;
-    margin-top: 12px;
-    font-size: 20px;
-    color: white;
-    background-color: rgb(2, 81, 82);
-    cursor: pointer;
-    border: none;
-    border-radius: 3px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  width: 100px;
+  height: 35px;
+  margin-top: 12px;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(2, 81, 82);
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .card button:hover {
-    background-color: rgb(2, 81, 82, 0.75);
+  background-color: rgb(2, 81, 82, 0.75);
 }
 
 #form {
-    scroll-margin-top: 134px;
+  scroll-margin-top: 134px;
 }
 
 .info-band {
-    width: 100%;
-    height: 150px;
-    background-color: rgb(232, 232, 232);
-    border-top: 1px solid rgb(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgb(0, 0, 0, 0.1);
-    margin-top: 100px;
-    margin-bottom: 60px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  width: 100%;
+  height: 150px;
+  background-color: rgb(232, 232, 232);
+  border-top: 1px solid rgb(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+  margin-top: 100px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .energy-produced,
 .location-number {
-    width: 40%;
-    height: 100%;
-    flex: 1.5;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 40%;
+  height: 100%;
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .production-info {
-    align-self: flex-end;
-    margin-right: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  align-self: flex-end;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .info-band h2 {
-    color: rgb(2, 81, 82);
-    align-self: flex-end;
-    font-size: 30px;
-    margin-bottom: 0;
+  color: rgb(2, 81, 82);
+  align-self: flex-end;
+  font-size: 30px;
+  margin-bottom: 0;
 }
 
 .info-band p {
-    margin-top: 0;
-    color: rgb(0, 0, 0, 0.5);
+  margin-top: 0;
+  color: rgb(0, 0, 0, 0.5);
 }
 
 .co2-saved {
-    width: 30%;
-    height: 100%;
-    flex: 1;
-    border-right: 1px solid rgb(0, 0, 0, 0.1);
-    border-left: 1px solid rgb(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 30%;
+  height: 100%;
+  flex: 1;
+  border-right: 1px solid rgb(0, 0, 0, 0.1);
+  border-left: 1px solid rgb(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .co2-saved:hover,
 .location-number:hover,
 .energy-produced:hover {
-    background-color: rgb(235, 235, 235);
+  background-color: rgb(235, 235, 235);
 }
 
 .co2-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .location-info {
-    align-self: flex-start;
-    margin-left: 50px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  align-self: flex-start;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .photo {
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .photo img {
-    height: 80px;
-    width: auto;
+  height: 80px;
+  width: auto;
 }
 
 .end-container {
-    width: 100%;
-    height: 740px;
-    margin-bottom: 70px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  height: 740px;
+  margin-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-container {
-    width: 80%;
-    height: 100%;
-    background-color: rgb(241, 241, 241);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  width: 80%;
+  height: 100%;
+  background-color: rgb(241, 241, 241);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .form {
-    width: 65%;
-    height: 90%;
-    background-color: rgb(246, 246, 246);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 4px 2px 7px rgba(0, 0, 0, 0.2);
+  width: 65%;
+  height: 90%;
+  background-color: rgb(246, 246, 246);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 4px 2px 7px rgba(0, 0, 0, 0.2);
 }
 
 .form h1 {
-    color: rgb(2, 81, 82);
-    margin-top: 40px;
-    margin-bottom: 40px;
+  color: rgb(2, 81, 82);
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .contact-row {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .contact-row input {
-    height: 50px;
-    width: 48.5%;
-    font-size: 25px;
-    border: 2px solid rgb(0, 0, 0, 0.1);
-    border-radius: 5px;
-    margin-bottom: 25px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  height: 50px;
+  width: 48.5%;
+  font-size: 25px;
+  border: 2px solid rgb(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 25px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .contact-row select {
-    height: 50px;
-    width: 100%;
-    font-size: 25px;
-    border: 2px solid rgb(0, 0, 0, 0.1);
-    border-radius: 5px;
-    margin-bottom: 25px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  height: 50px;
+  width: 100%;
+  font-size: 25px;
+  border: 2px solid rgb(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 25px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 #appointment-type {
-    width: 49.5%;
+  width: 49.5%;
 }
 
 #message {
-    width: 100%;
-    height: 120px;
-    margin-bottom: 40px;
+  width: 100%;
+  height: 120px;
+  margin-bottom: 40px;
 }
 
 .button-row {
-    width: 90%;
-    display: flex;
-    justify-content: center;
+  width: 90%;
+  display: flex;
+  justify-content: center;
 }
 
 .button-row button {
-    width: 40%;
-    height: 50px;
-    color: white;
-    font-weight: bold;
-    font-size: 25px;
-    background-color: rgb(2, 81, 82);
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  width: 45%;
+  height: 75px;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  background-color: rgb(2, 81, 82);
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .button-row button:hover {
-    background-color: rgb(2, 81, 82, 0.75);
+  background-color: rgb(2, 81, 82, 0.75);
 }
