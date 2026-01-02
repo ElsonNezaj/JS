@@ -23,38 +23,7 @@
     </head>
     <body>
         <div class="location-slider">
-            <div class="slides">
-                <a href="#locations" onclick="stopTimer()">
-                    <img
-                        src="./assets/images/windFarmArizona.jpg"
-                        alt="wind farm 1"
-                    />
-                </a>
-                <a href="#locations" onclick="stopTimer()">
-                    <img
-                        src="./assets/images/solarFarmArkansas.jpg"
-                        alt="solar farm 1"
-                    />
-                </a>
-                <a href="#locations" onclick="stopTimer()">
-                    <img
-                        src="./assets/images/solarFarmColorado.jpg"
-                        alt="solar farm 2"
-                    />
-                </a>
-                <a href="#locations" onclick="stopTimer()">
-                    <img
-                        src="./assets/images/hydro power plant.webp"
-                        alt="hydro plant"
-                    />
-                </a>
-                <a href="#locations" onclick="stopTimer()">
-                    <img
-                        src="./assets/images/winsconsonWindFarm.jpg"
-                        alt="wind farm 2"
-                    />
-                </a>
-            </div>
+            <div class="slides" id="slide"></div>
             <button class="prev" onclick="prevSlide()">&#8592;</button>
             <button class="next" onclick="nextSlide()">&#8594;</button>
 
@@ -126,7 +95,9 @@
                             "
                         ></div>
                         <div class="info">
-                            <h3>Alternative Energy&Services</h3>
+                            <h3 style="font-size: 16px">
+                                Alternative Energy&Services
+                            </h3>
                             <p>Colorado Solar Farm</p>
                         </div>
                         <a

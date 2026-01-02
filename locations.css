@@ -58,6 +58,17 @@ h4.show {
     display: block;
 }
 
+#slide {
+    height: 100%;
+    width: 100%;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+#slide:hover {
+    opacity: 0.8;
+}
+
 .slides img {
     width: 100%;
     opacity: 0.9;
