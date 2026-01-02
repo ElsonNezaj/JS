@@ -6,7 +6,10 @@
         <link rel="stylesheet" href="./locations.css" />
         <title>Locations</title>
         <script type="module">
-            import { initializeHeader, createDesktopNavigation } from "./header.js";
+            import {
+                initializeHeader,
+                createDesktopNavigation,
+            } from "./header.js";
 
             document.addEventListener("DOMContentLoaded", () => {
                 const header = initializeHeader();
@@ -19,32 +22,46 @@
         <script src="footer.js" defer></script>
     </head>
     <body>
-
         <div class="location-slider">
             <div class="slides">
                 <a href="#locations" onclick="stopTimer()">
-                    <img src="./assets/images/windFarmArizona.jpg" alt="wind farm 1"/>
+                    <img
+                        src="./assets/images/windFarmArizona.jpg"
+                        alt="wind farm 1"
+                    />
                 </a>
                 <a href="#locations" onclick="stopTimer()">
-                    <img src="./assets/images/solarFarmArkansas.jpg" alt="solar farm 1"/>
+                    <img
+                        src="./assets/images/solarFarmArkansas.jpg"
+                        alt="solar farm 1"
+                    />
                 </a>
                 <a href="#locations" onclick="stopTimer()">
-                    <img src="./assets/images/solarFarmColorado.jpg" alt="solar farm 2"/> 
+                    <img
+                        src="./assets/images/solarFarmColorado.jpg"
+                        alt="solar farm 2"
+                    />
                 </a>
                 <a href="#locations" onclick="stopTimer()">
-                    <img src="./assets/images/hydro power plant.webp" alt="hydro plant"/> 
+                    <img
+                        src="./assets/images/hydro power plant.webp"
+                        alt="hydro plant"
+                    />
                 </a>
                 <a href="#locations" onclick="stopTimer()">
-                    <img src="./assets/images/winsconsonWindFarm.jpg" alt="wind farm 2"/> 
+                    <img
+                        src="./assets/images/winsconsonWindFarm.jpg"
+                        alt="wind farm 2"
+                    />
                 </a>
             </div>
             <button class="prev" onclick="prevSlide()">&#8592;</button>
             <button class="next" onclick="nextSlide()">&#8594;</button>
 
             <h2>White Hills Wind</h2>
-            <h2>Big Cypress Solar</h2>     
+            <h2>Big Cypress Solar</h2>
             <h2>Alternative Energy&Services</h2>
-            <h2 >Itaipu Dam</h2>
+            <h2>Itaipu Dam</h2>
             <h2>Butler Ridge Wind</h2>
 
             <h4>Arizona Wind Farm</h4>
@@ -63,67 +80,101 @@
             <div class="card-container">
                 <div class="row">
                     <div class="card">
-                        <div class="image-container">
-                            <img src="./assets/images/windFarmArizona.jpg" alt="wind farm"/>
-                        </div>
+                        <div
+                            class="image-container"
+                            style="
+                                background: url('./assets/images/windFarmArizona.jpg')
+                                    center / cover no-repeat;
+                            "
+                        ></div>
                         <div class="info">
                             <h3>White Hills Wind</h3>
                             <p>Arizona Wind Farm</p>
                         </div>
-                        <a target="_blank" href="https://www.google.com/maps/place/White+Hills+Wind+Farm/data=!4m2!3m1!1s0x0:0xd7a9a1a390e2ff03?sa=X&ved=1t:2428&ictx=111">
+                        <a
+                            target="_blank"
+                            href="https://www.google.com/maps/place/White+Hills+Wind+Farm/data=!4m2!3m1!1s0x0:0xd7a9a1a390e2ff03?sa=X&ved=1t:2428&ictx=111"
+                        >
                             <button>View</button>
                         </a>
                     </div>
                     <div class="card">
-                        <div class="image-container">
-                            <img src="./assets/images/hydropower.jpeg" alt="wind farm"/>
-                        </div>
+                        <div
+                            class="image-container"
+                            style="
+                                background: url('./assets/images/hydropower.jpeg')
+                                    center / cover no-repeat;
+                            "
+                        ></div>
                         <div class="info">
                             <h3>Itaipu Dam</h3>
                             <p>Paraguay Hydro Plant</p>
                         </div>
-                        <a target="_blank" href="https://www.google.com/maps?ll=-25.423844075750118,-54.580114179499994&q=-25.423844075750118,-54.580114179499994&hl=en&t=m&z=15">
-                            <button>View</button>
-                        </a>                    
-                    </div>
-                    <div class="card">
-                        <div class="image-container">
-                            <img style="height: 100%; width: auto;" 
-                            src="./assets/images/solarFarmColorado.jpg" alt="wind farm"/>
-                        </div>
-                        <div class="info">
-                            <h3>Alternative Energy&Services</h3>
-                            <p>Colorado Solar Farm</p>
-                        </div>
-                        <a target="_blank" href="https://www.google.com/maps/place/Alternative+Energy+Services+Inc/@28.5249633,-80.8194618,17z/data=!3m1!4b1!4m6!3m5!1s0x88e7721cb743c65d:0x2b59562bb4188a35!8m2!3d28.5249633!4d-80.8168869!16s%2Fg%2F1vn_zslz?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">
-                            <button>View</button>
-                        </a>                    
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="card">
-                        <div class="image-container">
-                            <img src="./assets/images/winsconsonWindFarm.jpg" alt="wind farm"/>
-                        </div>
-                        <div class="info">
-                            <h3>Butler Ridge Wind</h3>
-                            <p>Wisconsin Wind Farm</p>
-                        </div>
-                        <a target="_blank" href="https://www.google.com/maps/place/Butler+Ridge,+LLC+Wind+Farm/@43.4006382,-88.4809909,17z/data=!3m1!4b1!4m6!3m5!1s0x880440b38fe3172d:0x8e95ea8601e43481!8m2!3d43.4006382!4d-88.4809909!16s%2Fg%2F1w96h9dp?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">
+                        <a
+                            target="_blank"
+                            href="https://www.google.com/maps?ll=-25.423844075750118,-54.580114179499994&q=-25.423844075750118,-54.580114179499994&hl=en&t=m&z=15"
+                        >
                             <button>View</button>
                         </a>
                     </div>
                     <div class="card">
-                        <div class="image-container">
-                            <img src="./assets/images/solarFarmArkansas.jpg" alt="wind farm"/>
+                        <div
+                            class="image-container"
+                            style="
+                                background: url('./assets/images/solarFarmColorado.jpg')
+                                    center / cover no-repeat;
+                            "
+                        ></div>
+                        <div class="info">
+                            <h3>Alternative Energy&Services</h3>
+                            <p>Colorado Solar Farm</p>
                         </div>
+                        <a
+                            target="_blank"
+                            href="https://www.google.com/maps/place/Alternative+Energy+Services+Inc/@28.5249633,-80.8194618,17z/data=!3m1!4b1!4m6!3m5!1s0x88e7721cb743c65d:0x2b59562bb4188a35!8m2!3d28.5249633!4d-80.8168869!16s%2Fg%2F1vn_zslz?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+                        >
+                            <button>View</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card">
+                        <div
+                            class="image-container"
+                            style="
+                                background: url('./assets/images/winsconsonWindFarm.jpg')
+                                    center / cover no-repeat;
+                            "
+                        ></div>
+                        <div class="info">
+                            <h3>Butler Ridge Wind</h3>
+                            <p>Wisconsin Wind Farm</p>
+                        </div>
+                        <a
+                            target="_blank"
+                            href="https://www.google.com/maps/place/Butler+Ridge,+LLC+Wind+Farm/@43.4006382,-88.4809909,17z/data=!3m1!4b1!4m6!3m5!1s0x880440b38fe3172d:0x8e95ea8601e43481!8m2!3d43.4006382!4d-88.4809909!16s%2Fg%2F1w96h9dp?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+                        >
+                            <button>View</button>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <div
+                            class="image-container"
+                            style="
+                                background: url('./assets/images/solarFarmArkansas.jpg')
+                                    center / cover no-repeat;
+                            "
+                        ></div>
                         <div class="info">
                             <h3>Big Cypress Solar</h3>
                             <p>Arkansas Solar Farm</p>
                         </div>
-                        <a target="_blank" href="https://www.google.com/maps/place/Big+Cypress+Solar/data=!4m2!3m1!1s0x0:0xf0f2ca63dee7cb5b?sa=X&ved=1t:2428&ictx=111">
+                        <a
+                            target="_blank"
+                            href="https://www.google.com/maps/place/Big+Cypress+Solar/data=!4m2!3m1!1s0x0:0xf0f2ca63dee7cb5b?sa=X&ved=1t:2428&ictx=111"
+                        >
                             <button>View</button>
-                        </a>                     
+                        </a>
                     </div>
                 </div>
             </div>
@@ -131,7 +182,9 @@
         <div class="info-band">
             <div class="energy-produced">
                 <div class="production-info">
-                    <div class="photo"><img src="./assets/images/energyProducedLogo.png"></div>
+                    <div class="photo">
+                        <img src="./assets/images/energyProducedLogo.png" />
+                    </div>
                     <div class="info-div">
                         <h2>4,700 MW</h2>
                         <p>Total Energy Produced</p>
@@ -140,20 +193,23 @@
             </div>
             <div class="co2-saved">
                 <div class="co2-info">
-                    <div style="margin-right: 20px;"
-                        class="photo">
-                    <img style="height: 60px; width: auto;"
-                        src="./assets/images/co2SavedLogo.png"></div>
+                    <div style="margin-right: 20px" class="photo">
+                        <img
+                            style="height: 60px; width: auto"
+                            src="./assets/images/co2SavedLogo.png"
+                        />
+                    </div>
                     <div class="info-div">
                         <h2>3.2M Tons</h2>
                         <p>CO<sub>2</sub> Emissions Saved</p>
                     </div>
                 </div>
-
             </div>
             <div class="location-number">
                 <div class="location-info">
-                    <div class="photo"><img src="./assets/images/locationPinLogo.png"></div>
+                    <div class="photo">
+                        <img src="./assets/images/locationPinLogo.png" />
+                    </div>
                     <div class="info-div">
                         <h2>10+</h2>
                         <p>Locations Worldwide</p>
@@ -166,8 +222,16 @@
                 <div class="form" id="form">
                     <h1>Book an Appointment</h1>
                     <div class="contact-row">
-                        <input  id="name-input" type="text" placeholder="Full Name">
-                        <input id="email-input" type="email" placeholder="Email"> 
+                        <input
+                            id="name-input"
+                            type="text"
+                            placeholder="Full Name"
+                        />
+                        <input
+                            id="email-input"
+                            type="email"
+                            placeholder="Email"
+                        />
                     </div>
                     <div class="contact-row">
                         <select id="location">
@@ -185,17 +249,19 @@
                             <option value="b">Commercial</option>
                             <option value="c">Personal</option>
                         </select>
-                        <input type="date" id="date-picker">
+                        <input type="date" id="date-picker" />
                     </div>
                     <div class="contact-row">
-                        <input type="text" id="message" placeholder="Message">
+                        <input type="text" id="message" placeholder="Message" />
                     </div>
                     <div class="button-row">
-                        <button id="submit-btn" onclick="clearForm()">Schedule Appointment</button>
+                        <button id="submit-btn" onclick="clearForm()">
+                            Schedule Appointment
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    <script src="locations.js"></script>
+        <script src="locations.js"></script>
     </body>
 </html>
