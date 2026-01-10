@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Launch Your Career</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="module">
+  import {
+    initializeHeader,
+    createDesktopNavigation,
+  } from "./header.js";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = initializeHeader();
+    document.body.insertBefore(header, document.body.firstChild);
+
+    createDesktopNavigation({ desktopState: window.headerState });
+  });
+</script>
+<link rel="stylesheet" href="./footer.css" />
+<script src="footer.js" defer></script>
+  <link rel="stylesheet" href="launch-career.css">
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="career-hero">
+    <div class="career-hero-content">
+      <h1>Launch Your Career</h1>
+      <p>
+        Start your professional journey in one of the most innovative
+        clean-energy companies in Europe.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section class="programs">
+    <h2>Early Career Programs</h2>
+
+    <div class="program-grid">
+      <div class="program-card">
+        <h3>🎓 Internships</h3>
+        <p>Hands-on experience alongside leading engineers and researchers.</p>
+      </div>
+
+      <div class="program-card">
+        <h3>🚀 Graduate Program</h3>
+        <p>Structured rotations across departments to build real expertise.</p>
+      </div>
+
+      <div class="program-card">
+        <h3>🔬 Research Fellowships</h3>
+        <p>Advanced research opportunities in nuclear and sustainability fields.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline">
+    <h2>Your Growth Journey</h2>
+
+    <div class="timeline-container">
+      <div class="timeline-step">
+        <span>Year 1</span>
+        <p>Foundations, mentoring, and onboarding</p>
+      </div>
+      <div class="timeline-step">
+        <span>Year 2</span>
+        <p>Specialization and international collaboration</p>
+      </div>
+      <div class="timeline-step">
+        <span>Year 3+</span>
+        <p>Leadership, innovation, and long-term impact</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat-box">
+      <h3 data-target="20">0</h3>
+      <p>Countries</p>
+    </div>
+    <div class="stat-box">
+      <h3 data-target="45">0</h3>
+      <p>Nationalities</p>
+    </div>
+    <div class="stat-box">
+      <h3 data-target="60">0</h3>
+      <p>Under 35 Employees</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="career-cta">
+    <h2>Ready to Shape the Future?</h2>
+    <button id="ctaBtn">View Open Positions</button>
+  </section>
+
+  <footer>
+    <p>© 2026 newcleo — Empowering the Next Generation</p>
+  </footer>
+
+  <script src="launch-career.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Working at newcleo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="module">
+  import {
+    initializeHeader,
+    createDesktopNavigation,
+  } from "./header.js";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = initializeHeader();
+    document.body.insertBefore(header, document.body.firstChild);
+
+    createDesktopNavigation({ desktopState: window.headerState });
+  });
+</script>
+<link rel="stylesheet" href="./footer.css" />
+<script src="footer.js" defer></script>
+  <link rel="stylesheet" href="join-our-team.css">
+</head>
+
+<body>
+
+  
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Build the Future of Clean Energy</h1>
+      <p>
+        At newcleo, we design next-generation nuclear solutions
+        to accelerate the transition to a sustainable world.
+      </p>
+      <button id="scrollBtn">Explore Careers</button>
+    </div>
+  </header>
+
+
+  <section class="values">
+    <h2>Why Work With Us</h2>
+
+    <div class="value-grid">
+      <div class="value-card">
+        <h3>🌱 Sustainability</h3>
+        <p>We reduce nuclear waste and carbon emissions using advanced technology.</p>
+      </div>
+
+      <div class="value-card">
+        <h3>🚀 Innovation</h3>
+        <p>Our engineers and scientists work on breakthrough reactor concepts.</p>
+      </div>
+
+      <div class="value-card">
+        <h3>🌍 Global Impact</h3>
+        <p>Your work contributes directly to the global clean-energy transition.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="benefits">
+    <h2>What We Offer</h2>
+
+    <div class="benefit-grid">
+      <div>💼 Competitive Salary</div>
+      <div>📚 Continuous Learning</div>
+      <div>🏠 Flexible Work Model</div>
+      <div>🤝 Inclusive Culture</div>
+      <div>🧠 Research Driven</div>
+      <div>🌐 International Teams</div>
+    </div>
+  </section>
+
+
+  <section class="apply">
+    <h2>Join Our Team</h2>
+
+    <form id="careerForm">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <select required>
+        <option value="">Select Role</option>
+        <option>Engineer</option>
+        <option>Researcher</option>
+        <option>Intern</option>
+        <option>Other</option>
+      </select>
+      <textarea placeholder="Why do you want to join newcleo?" required></textarea>
+      <button type="submit">Submit Application</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2026 newcleo — Clean Energy for Tomorrow</p>
+  </footer>
+
+  <script src="join-our-team.js"></script>
+</body>
+
+</html>
