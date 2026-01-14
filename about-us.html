@@ -1,199 +1,218 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./about-us.css" />
-    <title>About Us</title>
-    <script type="module">
-      import { initializeHeader, createDesktopNavigation } from "./header.js";
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./about-us.css" />
+        <title>About Us</title>
+        <script type="module">
+            import {
+                initializeHeader,
+                createDesktopNavigation,
+            } from "./header.js";
 
-      document.addEventListener("DOMContentLoaded", () => {
-        const header = initializeHeader();
-        document.body.insertBefore(header, document.body.firstChild);
+            document.addEventListener("DOMContentLoaded", () => {
+                const header = initializeHeader();
+                document.body.insertBefore(header, document.body.firstChild);
 
-        createDesktopNavigation({ desktopState: window.headerState });
-      });
-    </script>
-    <link rel="stylesheet" href="./footer.css" />
-    <script src="footer.js" defer></script>
-  </head>
+                createDesktopNavigation({ desktopState: window.headerState });
+            });
+        </script>
+        <link rel="stylesheet" href="./footer.css" />
+        <script src="footer.js" defer></script>
+    </head>
 
-  <body>
-    <div class="hero-container">
-      <div class="hero-content-container">
-        <h1>About Us</h1>
-        <h3>Empowering a Sustainable Future</h3>
-        <a href="#mission">
-          <button>Read Our Story</button>
-        </a>
-      </div>
-    </div>
-    <div class="mission-container">
-      <div class="mission-description">
-        <div class="divider-div">
-          <span id="mission">Our Mission</span>
-        </div>
-        <div class="desc">
-          <p>
-            We exist to accelerate the transition to clean, reliable energy by
-            delivering innovative renewable solutions that benefit people,
-            communities, and the planet. Through smart technology, responsible
-            development, and long-term partnerships, we help reduce
-            environmental impact while creating resilient, future-ready energy
-            systems. Our mission is to make sustainable power accessible,
-            affordable, and impactful—today and for generations to come.
-          </p>
-        </div>
-      </div>
-      <div class="mission-img">
-        <div class="img-container">
-          <img src="./assets/images/10yearIMG.PNG" />
-        </div>
-      </div>
-    </div>
-    <div class="impact-container">
-      <div class="divider-div">
-        <span>Our Global Impact</span>
-      </div>
-      <div class="card-container">
-        <div class="card">
-          <h2>Solar Energy</h2>
-          <p>
-            We harness the power of the sun to deliver clean, dependable energy
-            solutions that reduce costs and environmental impact.<span>
-              Our solar systems are designed for performance, durability, and
-              long-term value—helping homes, businesses, and communities
-              generate their own power with confidence. From intelligent system
-              design to seamless installation and ongoing support, we make solar
-              energy a smart, sustainable investment in a cleaner future.
-            </span>
-          </p>
-          <h3 class="learn-more" onclick="showMore(this)">-Learn More</h3>
-        </div>
-
-        <div class="card">
-          <h2>Wind Energy</h2>
-          <p>
-            We transform the natural power of the wind into reliable, renewable
-            electricity that supports a cleaner and more resilient energy
-            system.
-            <span>
-              Our wind solutions are engineered for efficiency, scalability, and
-              long-term performance, delivering consistent power while
-              minimizing environmental impact. By combining advanced technology
-              with responsible site development, we help communities benefit
-              from sustainable energy that strengthens the grid and reduces
-              dependence on fossil fuels.
-            </span>
-          </p>
-          <h3 class="learn-more" onclick="showMore(this)">-Learn More</h3>
-        </div>
-        <div class="card">
-          <h2>Hydroelectric</h2>
-          <p>
-            We leverage the continuous flow of water to generate clean,
-            dependable energy that supports long-term sustainability.
-            <span>
-              Our hydroelectric solutions are designed to deliver efficient,
-              low-impact power while respecting local ecosystems and water
-              resources. Through modern technology and responsible project
-              development, we provide reliable renewable energy that strengthens
-              energy security, supports communities, and contributes to a
-              balanced, resilient power grid.
-            </span>
-          </p>
-          <h3 class="learn-more" onclick="showMore(this)">-Learn More</h3>
-        </div>
-      </div>
-
-      <div class="info-band">
-        <div class="energy-produced">
-          <div class="production-info">
-            <div class="info-div">
-              <h2>4,700 MW</h2>
-              <p>Total Energy Produced</p>
+    <body>
+        <div class="hero-container">
+            <div class="hero-content-container">
+                <h1>About Us</h1>
+                <h3>Empowering a Sustainable Future</h3>
+                <a href="#mission">
+                    <button>Read Our Story</button>
+                </a>
             </div>
-          </div>
         </div>
-        <div class="operations">
-          <div class="operations-info">
-            <div class="info-div">
-              <h2>25+</h2>
-              <p>Operational Projects</p>
+        <div class="mission-container">
+            <div class="mission-description">
+                <div class="divider-div">
+                    <span id="mission">Our Mission</span>
+                </div>
+                <div class="desc">
+                    <p>
+                        We exist to accelerate the transition to clean, reliable
+                        energy by delivering innovative renewable solutions that
+                        benefit people, communities, and the planet. Through
+                        smart technology, responsible development, and long-term
+                        partnerships, we help reduce environmental impact while
+                        creating resilient, future-ready energy systems. Our
+                        mission is to make sustainable power accessible,
+                        affordable, and impactful—today and for generations to
+                        come.
+                    </p>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="co2-saved">
-          <div class="co2-info">
-            <div class="info-div">
-              <h2>3.2M Tons</h2>
-              <p>CO<sub>2</sub> Emissions Saved</p>
+            <div class="mission-img">
+                <div class="img-container">
+                    <img src="./assets/images/10yearIMG.PNG" />
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <h3 class="moto">on a mission to power a sustainable world</h3>
-      <a href="locations.html"
-        ><button class="location-btn">View Our Locations</button></a
-      >
-    </div>
-    <div class="reviews">
-      <div class="divider-div">
-        <span>What Our Clients Say</span>
-      </div>
-      <div class="reviewCard-container">
-        <div class="reviewCard">
-          <h3>Sustainability</h3>
-          <p>
-            Committed to energy solutions that protect ecosystems while powering
-            future generations responsibly.
-          </p>
-        </div>
-        <div class="reviewCard">
-          <h3>Innovation</h3>
-          <p>
-            Driven by innovation, advancing clean technologies that redefine
-            efficiency, reliability, and leadership.
-          </p>
-        </div>
-        <div class="reviewCard">
-          <h3>Integrity</h3>
-          <p>
-            Operating with integrity through transparency, accountability, and
-            decisions in every project delivered.
-          </p>
-        </div>
-        <div class="reviewCard">
-          <h3>Community</h3>
-          <p>
-            Strengthening communities by creating local partnerships, shared
-            value, and long-term economic opportunity.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="contactContainer">
-      <div class="divider-div">
-        <span>Get In Touch With Us</span>
-      </div>
-      <div class="contactInfoContainer">
-        <h4>Interested In Learning More About Us?</h4>
-        <button>Contact Us</button>
-      </div>
-    </div>
+        <div class="impact-container">
+            <div class="divider-div">
+                <span>Our Global Impact</span>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Solar Energy</h2>
+                    <p>
+                        We harness the power of the sun to deliver clean,
+                        dependable energy solutions that reduce costs and
+                        environmental impact.<span>
+                            Our solar systems are designed for performance,
+                            durability, and long-term value—helping homes,
+                            businesses, and communities generate their own power
+                            with confidence. From intelligent system design to
+                            seamless installation and ongoing support, we make
+                            solar energy a smart, sustainable investment in a
+                            cleaner future.
+                        </span>
+                    </p>
+                    <h3 class="learn-more" onclick="showMore(this)">
+                        -Learn More
+                    </h3>
+                </div>
 
-    <script>
-      function showMore(el) {
-        const parentDiv = el.closest(".card");
-        const textToShow = parentDiv.querySelector("span");
+                <div class="card">
+                    <h2>Wind Energy</h2>
+                    <p>
+                        We transform the natural power of the wind into
+                        reliable, renewable electricity that supports a cleaner
+                        and more resilient energy system.
+                        <span>
+                            Our wind solutions are engineered for efficiency,
+                            scalability, and long-term performance, delivering
+                            consistent power while minimizing environmental
+                            impact. By combining advanced technology with
+                            responsible site development, we help communities
+                            benefit from sustainable energy that strengthens the
+                            grid and reduces dependence on fossil fuels.
+                        </span>
+                    </p>
+                    <h3 class="learn-more" onclick="showMore(this)">
+                        -Learn More
+                    </h3>
+                </div>
+                <div class="card">
+                    <h2>Hydroelectric</h2>
+                    <p>
+                        We leverage the continuous flow of water to generate
+                        clean, dependable energy that supports long-term
+                        sustainability.
+                        <span>
+                            Our hydroelectric solutions are designed to deliver
+                            efficient, low-impact power while respecting local
+                            ecosystems and water resources. Through modern
+                            technology and responsible project development, we
+                            provide reliable renewable energy that strengthens
+                            energy security, supports communities, and
+                            contributes to a balanced, resilient power grid.
+                        </span>
+                    </p>
+                    <h3 class="learn-more" onclick="showMore(this)">
+                        -Learn More
+                    </h3>
+                </div>
+            </div>
 
-        parentDiv.classList.toggle("active");
-        textToShow.classList.toggle("show");
-        el.textContent == "Show Less"
-          ? (el.textContent = "-Learn More")
-          : (el.textContent = "Show Less");
-      }
-    </script>
-  </body>
+            <div class="info-band">
+                <div class="energy-produced">
+                    <div class="production-info">
+                        <div class="info-div">
+                            <h2>4,700 MW</h2>
+                            <p>Total Energy Produced</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="operations">
+                    <div class="operations-info">
+                        <div class="info-div">
+                            <h2>25+</h2>
+                            <p>Operational Projects</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="co2-saved">
+                    <div class="co2-info">
+                        <div class="info-div">
+                            <h2>3.2M Tons</h2>
+                            <p>CO<sub>2</sub> Emissions Saved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="moto">on a mission to power a sustainable world</h3>
+            <a href="locations.html"
+                ><button class="location-btn">View Our Locations</button></a
+            >
+        </div>
+        <div class="reviews">
+            <div class="divider-div">
+                <span>What Our Clients Say</span>
+            </div>
+            <div class="reviewCard-container">
+                <div class="reviewCard">
+                    <h3>Sustainability</h3>
+                    <p>
+                        Committed to energy solutions that protect ecosystems
+                        while powering future generations responsibly.
+                    </p>
+                </div>
+                <div class="reviewCard">
+                    <h3>Innovation</h3>
+                    <p>
+                        Driven by innovation, advancing clean technologies that
+                        redefine efficiency, reliability, and leadership.
+                    </p>
+                </div>
+                <div class="reviewCard">
+                    <h3>Integrity</h3>
+                    <p>
+                        Operating with integrity through transparency,
+                        accountability, and decisions in every project
+                        delivered.
+                    </p>
+                </div>
+                <div class="reviewCard">
+                    <h3>Community</h3>
+                    <p>
+                        Strengthening communities by creating local
+                        partnerships, shared value, and long-term economic
+                        opportunity.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="contactContainer">
+            <div class="divider-div">
+                <span>Get In Touch With Us</span>
+            </div>
+            <div class="contactInfoContainer">
+                <h4>Interested In Learning More About Us?</h4>
+                <button>Contact Us</button>
+            </div>
+        </div>
+
+        <script>
+            function showMore(el) {
+                const parentDiv = el.closest(".card");
+                const textToShow = parentDiv.querySelector("span");
+
+                parentDiv.classList.toggle("active");
+                textToShow.classList.toggle("show");
+                el.textContent == "Show Less"
+                    ? (el.textContent = "-Learn More")
+                    : (el.textContent = "Show Less");
+            }
+        </script>
+    </body>
 </html>
