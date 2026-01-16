@@ -16,7 +16,7 @@ const navItems = [
     },
     {
         text: "OUR TECHNOLOGY",
-        href: "/our-technology/",
+        href: "./reactors-fuels.html",
         dropdown: [{ text: "Reactors & Fuels", href: "reactors-fuels.html" }],
     },
     {
@@ -34,7 +34,7 @@ const navItems = [
     },
     {
         text: "JOIN OUR TEAM",
-        href: "/join-our-team/",
+        href: "./join-our-team.html",
         dropdown: [
             {
                 text: "Working at &nbsp; <i>new</i>cleo",
@@ -133,9 +133,9 @@ function createBlackHeader() {
     const items = [
         { href: "about-us.html", text: "newcleo Group" },
         { href: "news-insights.html", text: "Press and media" },
-        { href: "/supply-chain/", text: "Supply Chain" },
-        { href: "https://www.newcleo.com/investors/", text: "Investors" },
-        { href: "/contact-us/", text: "Contact us" },
+        { href: "#", text: "Supply Chain" },
+        { href: "#", text: "Investors" },
+        { href: "#", text: "Contact us" },
     ];
 
     const navContainer = document.createElement("div");
