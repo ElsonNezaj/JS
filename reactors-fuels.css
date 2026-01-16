@@ -7,7 +7,7 @@ body {
     color: #333;
     line-height: 1.6;
 }
-/*  SEKSIONI LART */
+    /* SEKSIONI LART */
 .top-section {
     display: flex;
     height: 300px;
@@ -108,7 +108,7 @@ body {
     background: #27ae60;
     transform: scale(1.05);
 }
-/* -------- CARDS -------- */
+/*  CARDS  */
 .cards {
     display: flex;
     gap: 20px;
@@ -137,7 +137,7 @@ body {
 .card:hover {
     transform: translateY(-8px);
 }
-/* -------- FUELS SECTION  -------- */
+/* FUELS SECTION */
 .fuels-section {
     padding: 60px 8%;
     background-color: #fff;
@@ -285,7 +285,7 @@ body {
 .core-item:hover h3 {
     color: #008b8b;
 }
-/* -------- TESTIMONIAL -------- */
+/* SHPREHJA */
 .testimonial {
     max-width: 600px;
     margin: 80px auto;

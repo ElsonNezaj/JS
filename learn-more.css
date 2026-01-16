@@ -7,7 +7,6 @@ body {
   background: #f5f7fa;
   color: #333;
 }
-/* HERO */
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("./assets/images/solar.jpg") center / cover no-repeat;
@@ -32,7 +31,6 @@ body {
   border-radius: 30px;
 }
 
-/*cards section*/
 .energy-solutions {
   padding: 80px 8%;
   background: #f6f9f9;
@@ -43,7 +41,6 @@ body {
   margin-bottom: 40px;
   color: #0b5c5c;
 }
-/* HORIZONTAL */
 .cards-scroll {
   display: flex;
   gap: 30px;
@@ -53,7 +50,6 @@ body {
 .cards-scroll::-webkit-scrollbar {
   display: none;
 }
-/* CARD */
 .energy-card {
   min-width: 320px;
   background: white;
@@ -62,13 +58,11 @@ body {
   overflow: hidden;
   flex-shrink: 0;
 }
-/* IMAGE */
 .energy-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
 }
-/* MAIN */
 .card-main {
   padding: 25px;
 }
@@ -80,7 +74,6 @@ body {
   color: #555;
   margin-bottom: 12px;
 }
-/* BUTTON */
 .more-btn {
   background: none;
   border: none;
@@ -88,7 +81,6 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
-/* HIDDEN INFO */
 .card-more {
   max-height: 0;
   overflow: hidden;
@@ -96,7 +88,6 @@ body {
   color: #555;
   transition: max-height 0.35s ease, padding 0.35s ease;
 }
-/* OPEN */
 .energy-card.open .card-more {
   max-height: 140px;
   padding: 0 25px 25px;
@@ -111,14 +102,12 @@ body {
   color: #0b5c5c;
   margin-bottom: 70px;
 }
-/* TIMELINE STRUCTURE */
 .timeline {
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
-/* LINE (ANIMATED) */
 .timeline::before {
   content: "";
   position: absolute;
@@ -129,11 +118,9 @@ body {
   background: #d9eded;
   transition: width 1.2s ease;
 }
-/* ACTIVE LINE */
 .energy-timeline.show .timeline::before {
   width: 100%;
 }
-/* ITEM */
 .timeline-item {
   position: relative;
   padding-top: 40px;
@@ -141,7 +128,6 @@ body {
   transform: translateY(40px);
   transition: 0.6s ease;
 }
-/* DOT */
 .timeline-item::before {
   content: "";
   position: absolute;
@@ -152,12 +138,10 @@ body {
   background: #2ecc71;
   border-radius: 50%;
 }
-/* ACTIVE ITEM */
 .energy-timeline.show .timeline-item {
   opacity: 1;
   transform: translateY(0);
 }
-/* STAGGER EFFECT */
 .energy-timeline.show .timeline-item:nth-child(1) {
   transition-delay: 0.2s;
 }
@@ -167,7 +151,6 @@ body {
 .energy-timeline.show .timeline-item:nth-child(3) {
   transition-delay: 0.6s;
 }
-/* TEXT */
 .year {
   font-weight: 700;
   font-size: 18px;
@@ -193,13 +176,11 @@ body {
   color: #ffffff;
   margin-bottom: 60px;
 }
-/* CARDS GRID */
 .cards-wow {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
-/* CARD STYLE */
 .card-wow {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
@@ -211,7 +192,6 @@ body {
   transform: translateY(40px);
   transition: all 0.6s ease;
 }
-/* HOVER EFFECT */
 .card-wow:hover {
   transform: translateY(-10px) scale(1.03);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
@@ -230,7 +210,6 @@ body {
   line-height: 1.6;
   color: #555;
 }
-/* SHOW CARDS ON SCROLL */
 .why-clean-energy-wow.show .card-wow {
   opacity: 1;
   transform: translateY(0);
@@ -266,7 +245,6 @@ body {
   font-size: 16px;
   color: #555;
 }
-/* TESTIMONIAL */
 .testimonial {
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: white;
