@@ -1,61 +1,57 @@
 // Define navItems globally
 const navItems = [
-    {
-        text: "PRODUCTS AND SERVICES",
-        href: "/products-services/",
-        dropdown: [
-            {
-                text: "Our services and skills",
-                href: "index.html",
-            },
-            // {
-            //   text: "Delivering our Gen-IV vision",
-            //   href: "/products-services/delivering-our-gen-iv-vision/",
-            // },
-        ],
-    },
-    {
-        text: "OUR TECHNOLOGY",
-        href: "./reactors-fuels.html",
-        dropdown: [{ text: "Reactors & Fuels", href: "reactors-fuels.html" }],
-    },
-    {
-        text: "ABOUT US",
-        href: "about-us.html",
-        dropdown: [
-            { text: "<i>new</i>cleo Group", href: "about-us.html" },
-            { text: "Locations", href: "locations.html" },
-        ],
-    },
-    {
-        text: "NEWS & INSIGHTS",
-        href: "./news-insights.html",
-        dropdown: null,
-    },
-    {
-        text: "JOIN OUR TEAM",
+  {
+    text: "PRODUCTS AND SERVICES",
+    href: "index.html",
+    dropdown: [
+      {
+        text: "Our services and skills",
+        href: "index.html",
+      },
+    ],
+  },
+  {
+    text: "OUR TECHNOLOGY",
+    href: "reactors-fuels.html",
+    dropdown: [{ text: "Reactors & Fuels", href: "reactors-fuels.html" }],
+  },
+  {
+    text: "ABOUT US",
+    href: "about-us.html",
+    dropdown: [
+      { text: "<i>new</i>cleo Group", href: "about-us.html" },
+      { text: "Locations", href: "locations.html" },
+    ],
+  },
+  {
+    text: "NEWS & INSIGHTS",
+    href: "./news-insights.html",
+    dropdown: null,
+  },
+  {
+    text: "JOIN OUR TEAM",
+    href: "join-our-team.html",
+    dropdown: [
+      {
+        text: "Working at &nbsp; <i>new</i>cleo",
+        href: "./launch-career.html",
+      },
+      {
+        text: "Join Our Team",
         href: "./join-our-team.html",
-        dropdown: [
-            {
-                text: "Working at &nbsp; <i>new</i>cleo",
-                href: "./launch-career.html",
-            },
-            {
-                text: "Join Our Team",
-                href: "./join-our-team.html",
-            },
-        ],
-    },
+      },
+    ],
+  },
 ];
 
 let menuButtonStateDesktop = false;
 let menuButtonStateMobile = true;
 
 function initializeHeader() {
-    const headerContainer = document.createElement("div");
-    headerContainer.className = "headerContainer";
+  const headerContainer = document.createElement("div");
+  headerContainer.className = "headerContainer";
 
-    const fontFaceCSS = `
+  const fontFaceCSS = `
     @font-face {
       font-family: 'Gotham';
       src: url('https://www.newcleo.com/static/fonts/Gotham-Book.woff2') format('woff2');
@@ -94,273 +90,272 @@ function initializeHeader() {
     }
   `;
 
-    const fontFaceStyle = document.createElement("style");
-    fontFaceStyle.textContent = fontFaceCSS;
-    document.head.appendChild(fontFaceStyle);
+  const fontFaceStyle = document.createElement("style");
+  fontFaceStyle.textContent = fontFaceCSS;
+  document.head.appendChild(fontFaceStyle);
 
-    const state = {
-        get menuButtonStateDesktop() {
-            return menuButtonStateDesktop;
-        },
-        set menuButtonStateDesktop(value) {
-            menuButtonStateDesktop = value;
-            if (window.updateDesktopNavigation) {
-                window.updateDesktopNavigation();
-            }
-        },
-    };
+  const state = {
+    get menuButtonStateDesktop() {
+      return menuButtonStateDesktop;
+    },
+    set menuButtonStateDesktop(value) {
+      menuButtonStateDesktop = value;
+      if (window.updateDesktopNavigation) {
+        window.updateDesktopNavigation();
+      }
+    },
+  };
 
-    const blackHeader = createBlackHeader();
-    headerContainer.appendChild(blackHeader);
+  const blackHeader = createBlackHeader();
+  headerContainer.appendChild(blackHeader);
 
-    const greenHeader = createGreenHeader({
-        desktopState: state,
-        mobileState: menuButtonStateMobile,
-    });
-    headerContainer.appendChild(greenHeader);
+  const greenHeader = createGreenHeader({
+    desktopState: state,
+    mobileState: menuButtonStateMobile,
+  });
+  headerContainer.appendChild(greenHeader);
 
-    addHeaderStyles();
+  addHeaderStyles();
 
-    window.headerState = state;
+  window.headerState = state;
 
-    return headerContainer;
+  return headerContainer;
 }
 
 function createBlackHeader() {
-    const container = document.createElement("div");
-    container.className = "blackcontainer";
+  const container = document.createElement("div");
+  container.className = "blackcontainer";
 
-    const items = [
-        { href: "about-us.html", text: "newcleo Group" },
-        { href: "news-insights.html", text: "Press and media" },
-        { href: "#", text: "Supply Chain" },
-        { href: "#", text: "Investors" },
-        { href: "#", text: "Contact us" },
-    ];
+  const items = [
+    { href: "about-us.html", text: "newcleo Group" },
+    { href: "news-insights.html", text: "Press and media" },
+    { href: "/supply-chain/", text: "Supply Chain" },
+    { href: "https://www.newcleo.com/investors/", text: "Investors" },
+    { href: "/contact-us/", text: "Contact us" },
+  ];
 
-    const navContainer = document.createElement("div");
-    navContainer.className = "navContainer";
+  const navContainer = document.createElement("div");
+  navContainer.className = "navContainer";
 
-    items.forEach((item) => {
-        const singleItem = document.createElement("a");
-        singleItem.className = "singleItem";
-        singleItem.href = item.href;
-        singleItem.innerHTML = item.text;
-        navContainer.appendChild(singleItem);
-    });
+  items.forEach((item) => {
+    const singleItem = document.createElement("a");
+    singleItem.className = "singleItem";
+    singleItem.href = item.href;
+    singleItem.innerHTML = item.text;
+    navContainer.appendChild(singleItem);
+  });
 
-    container.appendChild(navContainer);
-    return container;
+  container.appendChild(navContainer);
+  return container;
 }
 
 function createGreenHeader({ desktopState, mobileState }) {
-    const navbar = document.createElement("nav");
-    navbar.className = "navbarContainer";
+  const navbar = document.createElement("nav");
+  navbar.className = "navbarContainer";
 
-    const logo = document.createElement("div");
-    logo.className = "logo";
-    const logoImg = document.createElement("img");
-    logoImg.src =
-        "https://images.ctfassets.net/26ep875sz1dl/5tqbcXMxG54o08zYxhm3CT/0d9dd19f38a7fdd95bc2d8c1a9fd57c5/logo_white1__1_.svg";
-    logoImg.alt = "newcleo Logo";
-    logoImg.style.height = "40px";
-    logoImg.style.width = "7.86rem";
+  const logo = document.createElement("div");
+  logo.className = "logo";
+  const logoImg = document.createElement("img");
+  logoImg.src =
+    "https://images.ctfassets.net/26ep875sz1dl/5tqbcXMxG54o08zYxhm3CT/0d9dd19f38a7fdd95bc2d8c1a9fd57c5/logo_white1__1_.svg";
+  logoImg.alt = "newcleo Logo";
+  logoImg.style.height = "40px";
+  logoImg.style.width = "7.86rem";
 
+  const a = document.createElement("a");
+  a.href = "index.html";
+  a.appendChild(logoImg);
+
+  logo.appendChild(a);
+  navbar.appendChild(logo);
+
+  const navLinks = document.createElement("ul");
+  navLinks.className = "nav-links";
+
+  function createDropdown(items) {
+    const dropdown = document.createElement("ul");
+    dropdown.className = "dropdown";
+
+    items.forEach((item) => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.className = "dropdownLink";
+      a.href = item.href;
+      a.innerHTML = item.text;
+      li.appendChild(a);
+      dropdown.appendChild(li);
+    });
+
+    return dropdown;
+  }
+
+  navItems.forEach((item) => {
+    const li = document.createElement("li");
     const a = document.createElement("a");
-    a.href = "index.html";
-    a.appendChild(logoImg);
+    const arrow = document.createElement("span");
+    li.className = "navLinkContainer";
+    arrow.className = "arrow";
+    arrow.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" class="menu-arrow"><path d="M16 28L9 21 10.4 19.6 16 25.2 21.6 19.6 23 21z"></path></svg>`;
+    a.href = item.href;
+    a.innerHTML = item.text;
+    a.className = "linkLabel";
+    li.appendChild(a);
 
-    logo.appendChild(a);
-    navbar.appendChild(logo);
+    if (item.dropdown) {
+      li.appendChild(arrow);
+      const dropdown = createDropdown(item.dropdown);
+      li.appendChild(dropdown);
 
-    const navLinks = document.createElement("ul");
-    navLinks.className = "nav-links";
+      li.addEventListener("mouseenter", () => {
+        dropdown.style.display = "block";
+      });
 
-    function createDropdown(items) {
-        const dropdown = document.createElement("ul");
-        dropdown.className = "dropdown";
-
-        items.forEach((item) => {
-            const li = document.createElement("li");
-            const a = document.createElement("a");
-            a.className = "dropdownLink";
-            a.href = item.href;
-            a.innerHTML = item.text;
-            li.appendChild(a);
-            dropdown.appendChild(li);
-        });
-
-        return dropdown;
+      li.addEventListener("mouseleave", () => {
+        dropdown.style.display = "none";
+      });
     }
 
-    navItems.forEach((item) => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        const arrow = document.createElement("span");
-        li.className = "navLinkContainer";
-        arrow.className = "arrow";
-        arrow.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" class="menu-arrow"><path d="M16 28L9 21 10.4 19.6 16 25.2 21.6 19.6 23 21z"></path></svg>`;
-        a.href = item.href;
-        a.innerHTML = item.text;
-        a.className = "linkLabel";
-        li.appendChild(a);
+    navLinks.appendChild(li);
+  });
 
-        if (item.dropdown) {
-            li.appendChild(arrow);
-            const dropdown = createDropdown(item.dropdown);
-            li.appendChild(dropdown);
+  const menuButtonDesktop = document.createElement("div");
+  menuButtonDesktop.addEventListener("click", () => {
+    desktopState.menuButtonStateDesktop = !desktopState.menuButtonStateDesktop;
+    // Update button appearance
+    menuButtonDesktop.className = desktopState.menuButtonStateDesktop
+      ? "selectedMenuButtonDesktop"
+      : "menuButtonDesktop";
+    menuButtonDesktop.innerHTML = desktopState.menuButtonStateDesktop
+      ? `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path></svg>`
+      : `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
+  });
+  menuButtonDesktop.className = "menuButtonDesktop";
+  menuButtonDesktop.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
 
-            li.addEventListener("mouseenter", () => {
-                dropdown.style.display = "block";
-            });
+  const menuButtonMobile = document.createElement("div");
+  menuButtonMobile.addEventListener("click", () => {
+    mobileState = !mobileState;
+    menuButtonMobile.className = mobileState
+      ? "selectedMenuButtonMobile"
+      : "menuButtonMobile";
+    menuButtonMobile.innerHTML = mobileState
+      ? `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path></svg>`
+      : `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
+  });
+  menuButtonMobile.className = "menuButtonMobile";
+  menuButtonMobile.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
 
-            li.addEventListener("mouseleave", () => {
-                dropdown.style.display = "none";
-            });
-        }
+  navLinks.appendChild(menuButtonDesktop);
+  navLinks.appendChild(menuButtonMobile);
+  navbar.appendChild(navLinks);
 
-        navLinks.appendChild(li);
-    });
-
-    const menuButtonDesktop = document.createElement("div");
-    menuButtonDesktop.addEventListener("click", () => {
-        desktopState.menuButtonStateDesktop =
-            !desktopState.menuButtonStateDesktop;
-        // Update button appearance
-        menuButtonDesktop.className = desktopState.menuButtonStateDesktop
-            ? "selectedMenuButtonDesktop"
-            : "menuButtonDesktop";
-        menuButtonDesktop.innerHTML = desktopState.menuButtonStateDesktop
-            ? `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path></svg>`
-            : `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
-    });
-    menuButtonDesktop.className = "menuButtonDesktop";
-    menuButtonDesktop.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
-
-    const menuButtonMobile = document.createElement("div");
-    menuButtonMobile.addEventListener("click", () => {
-        mobileState = !mobileState;
-        menuButtonMobile.className = mobileState
-            ? "selectedMenuButtonMobile"
-            : "menuButtonMobile";
-        menuButtonMobile.innerHTML = mobileState
-            ? `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path></svg>`
-            : `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
-    });
-    menuButtonMobile.className = "menuButtonMobile";
-    menuButtonMobile.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12H14V13H2zM2 9H14V10H2zM2 6H14V7H2zM2 3H14V4H2z"></path></svg>`;
-
-    navLinks.appendChild(menuButtonDesktop);
-    navLinks.appendChild(menuButtonMobile);
-    navbar.appendChild(navLinks);
-
-    return navbar;
+  return navbar;
 }
 
 function createDesktopNavigation({ desktopState }) {
-    let desktopNav = document.querySelector(".desktopNavigationContainer");
+  let desktopNav = document.querySelector(".desktopNavigationContainer");
 
-    if (!desktopNav) {
-        desktopNav = document.createElement("div");
-        desktopNav.className = "desktopNavigationContainer";
-        document.body.appendChild(desktopNav);
-    }
+  if (!desktopNav) {
+    desktopNav = document.createElement("div");
+    desktopNav.className = "desktopNavigationContainer";
+    document.body.appendChild(desktopNav);
+  }
 
-    const navContainer = document.createElement("div");
-    navContainer.className = "navList";
-    const navTitle = document.createElement("div");
-    navTitle.className = "navTitle";
-    navTitle.innerHTML = "<p>Navigation</p>";
-    navContainer.appendChild(navTitle);
+  const navContainer = document.createElement("div");
+  navContainer.className = "navList";
+  const navTitle = document.createElement("div");
+  navTitle.className = "navTitle";
+  navTitle.innerHTML = "<p>Navigation</p>";
+  navContainer.appendChild(navTitle);
 
-    const routesContainer = document.createElement("div");
-    routesContainer.className = "routesContainer";
-    const mainRoutes = document.createElement("ul");
-    mainRoutes.className = "mainRoutesContainer";
+  const routesContainer = document.createElement("div");
+  routesContainer.className = "routesContainer";
+  const mainRoutes = document.createElement("ul");
+  mainRoutes.className = "mainRoutesContainer";
 
-    const subRoutesContainer = document.createElement("ul");
-    subRoutesContainer.className = "subRoutesContainer";
+  const subRoutesContainer = document.createElement("ul");
+  subRoutesContainer.className = "subRoutesContainer";
 
-    const updateSubRoutes = (items) => {
-        subRoutesContainer.innerHTML = "";
+  const updateSubRoutes = (items) => {
+    subRoutesContainer.innerHTML = "";
 
-        if (items && items.length > 0) {
-            items.forEach((item) => {
-                const li = document.createElement("li");
-                const p = document.createElement("p");
-                p.innerHTML = item.text;
-                li.appendChild(p);
-
-                li.addEventListener("click", () => {
-                    window.location.href = item.href;
-                });
-
-                li.style.cursor = "pointer";
-                subRoutesContainer.appendChild(li);
-            });
-        }
-    };
-
-    updateSubRoutes([]);
-
-    navItems.forEach((item) => {
+    if (items && items.length > 0) {
+      items.forEach((item) => {
         const li = document.createElement("li");
         const p = document.createElement("p");
-        const arrow = document.createElement("span");
-        arrow.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 32 32" aria-hidden="true"><path d="M22 16L12 26 10.6 24.6 19.2 16 10.6 7.4 12 6z"></path></svg>`;
         p.innerHTML = item.text;
-
         li.appendChild(p);
-        li.appendChild(arrow);
 
         li.addEventListener("click", () => {
-            if (item.dropdown) {
-                updateSubRoutes(item.dropdown);
-            } else {
-                window.location.href = item.href;
-            }
+          window.location.href = item.href;
         });
 
-        mainRoutes.appendChild(li);
+        li.style.cursor = "pointer";
+        subRoutesContainer.appendChild(li);
+      });
+    }
+  };
+
+  updateSubRoutes([]);
+
+  navItems.forEach((item) => {
+    const li = document.createElement("li");
+    const p = document.createElement("p");
+    const arrow = document.createElement("span");
+    arrow.innerHTML = `<svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 32 32" aria-hidden="true"><path d="M22 16L12 26 10.6 24.6 19.2 16 10.6 7.4 12 6z"></path></svg>`;
+    p.innerHTML = item.text;
+
+    li.appendChild(p);
+    li.appendChild(arrow);
+
+    li.addEventListener("click", () => {
+      if (item.dropdown) {
+        updateSubRoutes(item.dropdown);
+      } else {
+        window.location.href = item.href;
+      }
     });
 
-    routesContainer.appendChild(mainRoutes);
-    routesContainer.appendChild(subRoutesContainer);
-    navContainer.appendChild(routesContainer);
+    mainRoutes.appendChild(li);
+  });
 
-    const updateNavigation = () => {
-        if (desktopState.menuButtonStateDesktop) {
-            desktopNav.innerHTML = "";
-            desktopNav.appendChild(navContainer);
-            desktopNav.className = "desktopNavigationContainer";
-            document.body.classList.add("desktop-nav-open");
-        } else {
-            desktopNav.className = "hideNavbar";
-            document.body.classList.remove("desktop-nav-open");
-        }
-    };
+  routesContainer.appendChild(mainRoutes);
+  routesContainer.appendChild(subRoutesContainer);
+  navContainer.appendChild(routesContainer);
 
-    window.updateDesktopNavigation = updateNavigation;
+  const updateNavigation = () => {
+    if (desktopState.menuButtonStateDesktop) {
+      desktopNav.innerHTML = "";
+      desktopNav.appendChild(navContainer);
+      desktopNav.className = "desktopNavigationContainer";
+      document.body.classList.add("desktop-nav-open");
+    } else {
+      desktopNav.className = "hideNavbar";
+      document.body.classList.remove("desktop-nav-open");
+    }
+  };
 
-    Object.defineProperty(desktopState, "menuButtonStateDesktop", {
-        set(newValue) {
-            this._menuButtonStateDesktop = newValue;
-            updateNavigation();
-        },
-        get() {
-            return this._menuButtonStateDesktop;
-        },
-    });
+  window.updateDesktopNavigation = updateNavigation;
 
-    updateNavigation();
+  Object.defineProperty(desktopState, "menuButtonStateDesktop", {
+    set(newValue) {
+      this._menuButtonStateDesktop = newValue;
+      updateNavigation();
+    },
+    get() {
+      return this._menuButtonStateDesktop;
+    },
+  });
 
-    addDesktopNavigationStyles();
+  updateNavigation();
+
+  addDesktopNavigationStyles();
 }
 
 function addDesktopNavigationStyles() {
-    const style = document.createElement("style");
-    style.id = "desktopNavStyles";
-    style.textContent = `
+  const style = document.createElement("style");
+  style.id = "desktopNavStyles";
+  style.textContent = `
     @keyframes showNavbar {
       0% {
         height: 0px;
@@ -534,12 +529,12 @@ function addDesktopNavigationStyles() {
       transition: color 0.3s;
     }
   `;
-    document.head.appendChild(style);
+  document.head.appendChild(style);
 }
 
 function addHeaderStyles() {
-    const style = document.createElement("style");
-    style.textContent = `
+  const style = document.createElement("style");
+  style.textContent = `
     body {
       font-family: 'Gotham', Arial, sans-serif;
       margin: 0;
@@ -816,7 +811,7 @@ function addHeaderStyles() {
       }
     }
   `;
-    document.head.appendChild(style);
+  document.head.appendChild(style);
 }
 
 export { initializeHeader, createDesktopNavigation, navItems };

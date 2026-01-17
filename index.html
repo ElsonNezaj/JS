@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,6 +13,15 @@
         document.body.insertBefore(header, document.body.firstChild);
 
         createDesktopNavigation({ desktopState: window.headerState });
+      });
+
+      const scrollButton = document.getElementById("scroll");
+      const target = document.getElementById("target");
+
+      scrollButton.addEventListener("click", () => {
+        target.scrollIntoView({
+          behavior: "smooth",
+        });
       });
     </script>
     <link rel="stylesheet" href="./content.css" />
@@ -52,7 +61,7 @@
               </div>
             </div>
           </div>
-          <div class="scrollContainer">
+          <div id="scroll" class="scrollContainer">
             <img
               src="./assets/images/double-chevron-down-svgrepo-com.svg"
               class="icon"
@@ -85,7 +94,7 @@
         <!-- PRODUCT INFORMATION SECTION -->
 
         <!-- SERVICES CONTAINER -->
-        <section class="servicesContainer">
+        <section id="target" class="servicesContainer">
           <p class="smallHeaderLabel">WHAT WE OFFER</p>
           <p class="sectionTitle">Our Core Services</p>
           <p class="sectionDescription">
